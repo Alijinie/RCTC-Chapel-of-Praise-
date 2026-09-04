@@ -1400,7 +1400,7 @@ let audioTimer = null;
 let leafletMapInstance = null;
 
 // --- TOAST NOTIFICATIONS ---
-export function showToast(message, type = 'info') {
+function showToast(message, type = 'info') {
   const container = document.getElementById('toast-container');
   if (!container) return;
 
@@ -1430,7 +1430,7 @@ export function showToast(message, type = 'info') {
 }
 
 // --- TAB SWITCHING ---
-export function switchTab(tabId) {
+function switchTab(tabId) {
   currentTab = tabId;
 
   // 1. Hide all tab contents, show active
@@ -1533,7 +1533,7 @@ function startSundayCountdown() {
 }
 
 // --- CONGREGATION SWITCHER (MINISTRIES TAB) ---
-export function switchCongregation(congId) {
+function switchCongregation(congId) {
   activeCongregation = congId;
   const data = CHURCH_DATA.congregations[congId];
   if (!data) return;
@@ -1574,7 +1574,7 @@ export function switchCongregation(congId) {
 }
 
 // --- MEDIA TAB LOGIC ---
-export function filterMedia(category) {
+function filterMedia(category) {
   activeMediaFilter = category;
   
   // Update category buttons
@@ -1601,7 +1601,7 @@ export function filterMedia(category) {
 }
 
 // Audio Player Simulation
-export function playSermon(sermonId) {
+function playSermon(sermonId) {
   const sermon = CHURCH_DATA.sermons.find(s => s.id === sermonId);
   if (!sermon) return;
 
@@ -1628,7 +1628,7 @@ export function playSermon(sermonId) {
   }, 1000);
 }
 
-export function togglePlayPause() {
+function togglePlayPause() {
   isAudioPlaying = !isAudioPlaying;
   const toggleBtn = document.getElementById('audio-play-toggle');
   if (toggleBtn) {
@@ -1638,7 +1638,7 @@ export function togglePlayPause() {
   }
 }
 
-export function closeAudioPlayer() {
+function closeAudioPlayer() {
   isAudioPlaying = false;
   currentPlayingSermon = null;
   if (audioTimer) clearInterval(audioTimer);
@@ -1647,7 +1647,7 @@ export function closeAudioPlayer() {
 }
 
 // --- EVENTS TAB LOGIC ---
-export function filterEvents(category) {
+function filterEvents(category) {
   activeEventFilter = category;
 
   const buttons = document.querySelectorAll('[data-event-filter]');
@@ -1672,7 +1672,7 @@ export function filterEvents(category) {
 }
 
 // Download iCalendar .ics file
-export function downloadEventReminder(eventId) {
+function downloadEventReminder(eventId) {
   const evt = CHURCH_DATA.events.find(e => e.id === eventId);
   if (!evt) return;
 
@@ -1778,7 +1778,7 @@ function initOrResizeMap() {
 }
 
 // --- MODALS ---
-export function openModal(modalId) {
+function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.remove('hidden');
@@ -1786,7 +1786,7 @@ export function openModal(modalId) {
   }
 }
 
-export function closeModal(modalId) {
+function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add('hidden');
@@ -1794,14 +1794,14 @@ export function closeModal(modalId) {
   }
 }
 
-export function copyServiceNotes() {
+function copyServiceNotes() {
   const text = `RCBC Chapel of Praise - Holy Ghost Service Notes\nTheme: Raising Christ's Ambassadors\nScripture: 2 Corinthians 5:20, Isaiah 60:1\nLocation: Redemption City, Ogun State\n\nKey Exhortations:\n1. The Altar must remain ablaze through personal study and prayer.\n2. Doctrinal integrity in an evolving global culture.\n3. Every student-minister is sent as an ambassador to the nations.`;
   navigator.clipboard.writeText(text);
   showToast('Holy Ghost Service notes copied to clipboard!', 'success');
 }
 
 // Export single self-contained HTML file
-export function exportSingleHtml() {
+function exportSingleHtml() {
   const clone = document.documentElement.cloneNode(true);
   
   // Remove temporary toast messages from clone
