@@ -283,6 +283,76 @@
           </div>
         </div>
 
+        <!-- ==================================================== -->
+        <!-- ELDERS' MESSAGE SECTION                               -->
+        <!-- Swap each <img src="..."> below and the name/title    -->
+        <!-- text with real photos & details when ready. Each card -->
+        <!-- opens a matching modal with the elder's full message. -->
+        <!-- ==================================================== -->
+        <div class="space-y-4">
+          <div class="space-y-1">
+            <span class="text-[11px] font-bold tracking-widest text-[#80182a] uppercase block">LEADERSHIP</span>
+            <h2 class="font-serif text-3xl font-bold text-stone-900">A word from our elders</h2>
+            <p class="text-xs sm:text-sm text-stone-600">Messages of welcome and covering from those who watch over this house.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Elder 1: The Provost -->
+            <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col">
+              <!-- PLACEHOLDER IMAGE: replace src with the Provost's real photo -->
+              <img src="https://placehold.co/500x600/ede7da/80182a?text=The+Provost" alt="Portrait of the Provost" class="w-full h-56 object-cover" />
+              <div class="p-5 space-y-2 flex flex-col flex-1">
+                <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">THE PROVOST</span>
+                <!-- PLACEHOLDER NAME: replace with the Provost's real name -->
+                <h3 class="font-serif text-lg font-bold text-stone-900 leading-snug">Prof. [Provost's Full Name]</h3>
+                <p class="text-xs text-stone-600 leading-relaxed flex-1">
+                  "It is my joy to welcome you into a house where sound doctrine and the Spirit's fire meet. May you find here a family that will nurture you for the assignment ahead."
+                </p>
+                <button data-open-modal="modal-elder-provost" class="text-xs font-semibold text-[#80182a] hover:underline pt-1 inline-flex items-center gap-1 self-start">
+                  <span>Read full message</span>
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Elder 2: The Deputy Provost -->
+            <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col">
+              <!-- PLACEHOLDER IMAGE: replace src with the Deputy Provost's real photo -->
+              <img src="https://placehold.co/500x600/ede7da/80182a?text=Deputy+Provost" alt="Portrait of the Deputy Provost" class="w-full h-56 object-cover" />
+              <div class="p-5 space-y-2 flex flex-col flex-1">
+                <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">THE DEPUTY PROVOST</span>
+                <!-- PLACEHOLDER NAME: replace with the Deputy Provost's real name -->
+                <h3 class="font-serif text-lg font-bold text-stone-900 leading-snug">Dr. [Deputy Provost's Full Name]</h3>
+                <p class="text-xs text-stone-600 leading-relaxed flex-1">
+                  "Every student who passes through this campus is being shaped for global impact. We labour daily so that what you carry from here outlives every classroom."
+                </p>
+                <button data-open-modal="modal-elder-deputy-provost" class="text-xs font-semibold text-[#80182a] hover:underline pt-1 inline-flex items-center gap-1 self-start">
+                  <span>Read full message</span>
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Elder 3: The Chaplain -->
+            <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col">
+              <!-- PLACEHOLDER IMAGE: replace src with the Chaplain's real photo -->
+              <img src="https://placehold.co/500x600/ede7da/80182a?text=The+Chaplain" alt="Portrait of the Chaplain" class="w-full h-56 object-cover" />
+              <div class="p-5 space-y-2 flex flex-col flex-1">
+                <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">THE CHAPLAIN</span>
+                <!-- PLACEHOLDER NAME: replace with the Chaplain's real name -->
+                <h3 class="font-serif text-lg font-bold text-stone-900 leading-snug">Rev. [Chaplain's Full Name]</h3>
+                <p class="text-xs text-stone-600 leading-relaxed flex-1">
+                  "The altar of this chapel stays lit because of you. Come as you are, bring your burdens to the Prayer Desk, and let us carry them to heaven together."
+                </p>
+                <button data-open-modal="modal-elder-chaplain" class="text-xs font-semibold text-[#80182a] hover:underline pt-1 inline-flex items-center gap-1 self-start">
+                  <span>Read full message</span>
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Life on Campus Gallery -->
         <div class="space-y-3">
           <div class="flex justify-between items-end">
@@ -388,42 +458,48 @@
         </div>
 
         <!-- Congregation Active Card -->
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 pb-4">
-            <div>
-              <span id="cong-badge" class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">CONSECRATION & WORD</span>
-              <h3 id="cong-title" class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-1">Main Sanctuary</h3>
-            </div>
-            <div class="text-right">
-              <span id="cong-time" class="text-xs font-bold text-stone-900 block">Sundays · 8:00 AM</span>
-              <span id="cong-venue" class="text-[11px] text-stone-500 block">Chapel of Praise Main Auditorium</span>
-            </div>
-          </div>
+        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm">
+          <!-- PLACEHOLDER IMAGE: swapped automatically per pill via switchCongregation(); -->
+          <!-- replace the "image" values in CHURCH_DATA.congregations with real photos.  -->
+          <img id="cong-image" src="https://placehold.co/1000x520/ede7da/80182a?text=Main+Sanctuary" alt="Main Sanctuary" class="w-full h-52 sm:h-64 object-cover" />
 
-          <p id="cong-desc" class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-            The primary worship gathering of RCTC faculty, student ministers, campus residents, and visiting families. Rooted in deep reverent praise, biblical exposition, and corporate prayer.
-          </p>
+          <div class="p-6 sm:p-8 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 pb-4">
+              <div>
+                <span id="cong-badge" class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">CONSECRATION & WORD</span>
+                <h3 id="cong-title" class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-1">Main Sanctuary</h3>
+              </div>
+              <div class="text-right">
+                <span id="cong-time" class="text-xs font-bold text-stone-900 block">Sundays · 8:00 AM</span>
+                <span id="cong-venue" class="text-[11px] text-stone-500 block">Chapel of Praise Main Auditorium</span>
+              </div>
+            </div>
 
-          <div class="pt-2">
-            <span class="text-[10px] font-bold tracking-widest text-stone-500 uppercase block mb-2">KEY FOCUS AREAS</span>
-            <ul id="cong-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <li class="flex items-center gap-2 text-xs text-stone-700">
-                <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Traditional & contemporary hymns</span>
-              </li>
-              <li class="flex items-center gap-2 text-xs text-stone-700">
-                <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Expository biblical teaching</span>
-              </li>
-              <li class="flex items-center gap-2 text-xs text-stone-700">
-                <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Holy Communion first Sundays</span>
-              </li>
-              <li class="flex items-center gap-2 text-xs text-stone-700">
-                <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Infant dedication & family blessing</span>
-              </li>
-            </ul>
+            <p id="cong-desc" class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+              The primary worship gathering of RCTC faculty, student ministers, campus residents, and visiting families. Rooted in deep reverent praise, biblical exposition, and corporate prayer.
+            </p>
+
+            <div class="pt-2">
+              <span class="text-[10px] font-bold tracking-widest text-stone-500 uppercase block mb-2">KEY FOCUS AREAS</span>
+              <ul id="cong-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <li class="flex items-center gap-2 text-xs text-stone-700">
+                  <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Traditional & contemporary hymns</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs text-stone-700">
+                  <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Expository biblical teaching</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs text-stone-700">
+                  <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Holy Communion first Sundays</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs text-stone-700">
+                  <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Infant dedication & family blessing</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -1215,6 +1291,111 @@
       </div>
     </div>
 
+    <!-- Modal 6: The Provost's Full Message -->
+    <div id="modal-elder-provost" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-3">
+            <!-- PLACEHOLDER IMAGE: replace with the Provost's real photo -->
+            <img src="https://placehold.co/120x120/ede7da/80182a?text=Provost" alt="Portrait of the Provost" class="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
+            <div>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">THE PROVOST</span>
+              <!-- PLACEHOLDER NAME -->
+              <h3 class="font-serif text-xl font-bold text-stone-900 mt-0.5">Prof. [Provost's Full Name]</h3>
+            </div>
+          </div>
+          <button data-close-modal="modal-elder-provost" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
+          <p>Beloved in Christ,</p>
+          <p>
+            It is my joy to welcome you into a house where sound doctrine and the Spirit's fire meet. RCTC Chapel of Praise exists to raise a generation of ambassadors who will carry the gospel with both academic excellence and supernatural power.
+          </p>
+          <p>
+            Whether you are here as a student minister, a faculty member, or a first-time visitor, know that you have been received into a family that will disciple, correct, and celebrate you. May you find here a covering that will nurture you for the assignment ahead.
+          </p>
+          <p>Grace and peace to you,<br/>The Provost</p>
+        </div>
+
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-elder-provost" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 7: The Deputy Provost's Full Message -->
+    <div id="modal-elder-deputy-provost" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-3">
+            <!-- PLACEHOLDER IMAGE: replace with the Deputy Provost's real photo -->
+            <img src="https://placehold.co/120x120/ede7da/80182a?text=Dep.+Provost" alt="Portrait of the Deputy Provost" class="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
+            <div>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">THE DEPUTY PROVOST</span>
+              <!-- PLACEHOLDER NAME -->
+              <h3 class="font-serif text-xl font-bold text-stone-900 mt-0.5">Dr. [Deputy Provost's Full Name]</h3>
+            </div>
+          </div>
+          <button data-close-modal="modal-elder-deputy-provost" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
+          <p>Dearly beloved,</p>
+          <p>
+            Every student who passes through this campus is being shaped for global impact. Behind the scenes, we labour daily in prayer, planning, and pastoral care so that what you carry from here outlives every classroom and every season on campus.
+          </p>
+          <p>
+            I encourage you to give yourself fully to the discipleship, fellowship, and academic rigour this house offers. God is not done writing your story, and we count it a privilege to walk this stretch of it with you.
+          </p>
+          <p>In His service,<br/>The Deputy Provost</p>
+        </div>
+
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-elder-deputy-provost" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 8: The Chaplain's Full Message -->
+    <div id="modal-elder-chaplain" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-3">
+            <!-- PLACEHOLDER IMAGE: replace with the Chaplain's real photo -->
+            <img src="https://placehold.co/120x120/ede7da/80182a?text=Chaplain" alt="Portrait of the Chaplain" class="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
+            <div>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">THE CHAPLAIN</span>
+              <!-- PLACEHOLDER NAME -->
+              <h3 class="font-serif text-xl font-bold text-stone-900 mt-0.5">Rev. [Chaplain's Full Name]</h3>
+            </div>
+          </div>
+          <button data-close-modal="modal-elder-chaplain" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
+          <p>Beloved of God,</p>
+          <p>
+            The altar of this chapel stays lit because of you — your worship, your obedience, and your prayers. As Chaplain, my heart is to see every member of this campus family walking in wholeness: spirit, soul, and body.
+          </p>
+          <p>
+            Come as you are. Bring your burdens to the Prayer Desk, your questions to Digging Deep, and your praise to the Sunday altar, and let us carry it all to heaven together. Heaven is listening, and God still answers by fire.
+          </p>
+          <p>Yours in the Master's service,<br/>The Chaplain</p>
+        </div>
+
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-elder-chaplain" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Application Script (Vanilla JavaScript Controller) -->
     <script>
       // RCBC Chapel of Praise - Vanilla JavaScript Application Logic
@@ -1239,7 +1420,9 @@
       time: "Sundays · 8:00 AM",
       venue: "Chapel of Praise Main Auditorium",
       description: "The primary worship gathering of RCBC faculty, student ministers, campus residents, and visiting families. Rooted in deep reverent praise, biblical exposition, and corporate prayer.",
-      features: ["Traditional & contemporary hymns", "Expository biblical teaching", "Holy Communion first Sundays", "Infant dedication & family blessing"]
+      features: ["Traditional & contemporary hymns", "Expository biblical teaching", "Holy Communion first Sundays", "Infant dedication & family blessing"],
+      // PLACEHOLDER IMAGE: replace with a real Main Sanctuary photo
+      image: "https://placehold.co/1000x520/ede7da/80182a?text=Main+Sanctuary"
     },
     youth: {
       id: "youth",
@@ -1248,7 +1431,9 @@
       time: "Sundays · 8:00 AM",
       venue: "RCBC Youth Arena (Hall B)",
       description: "A vibrant, spirit-led atmosphere engineered for young professionals, undergraduate Bible college scholars, and youths across Redemption City.",
-      features: ["Contemporary high-energy worship", "Real-world ministry leadership", "Discussions on career, marriage & calling", "Campus outreaches & creative media"]
+      features: ["Contemporary high-energy worship", "Real-world ministry leadership", "Discussions on career, marriage & calling", "Campus outreaches & creative media"],
+      // PLACEHOLDER IMAGE: replace with a real Youth Church photo
+      image: "https://placehold.co/1000x520/ede7da/80182a?text=Youth+Church"
     },
     teens: {
       id: "teens",
@@ -1257,7 +1442,9 @@
       time: "Sundays · 8:00 AM",
       venue: "Junior Chapel Pavilion",
       description: "Specially curated for teenagers aged 13 to 19 to establish unshakable biblical roots before stepping out into higher education and the global arena.",
-      features: ["Interactive Q&A scripture breakdown", "Peer discipleship & mentorship", "Academic excellence workshops", "Talent development in drama & music"]
+      features: ["Interactive Q&A scripture breakdown", "Peer discipleship & mentorship", "Academic excellence workshops", "Talent development in drama & music"],
+      // PLACEHOLDER IMAGE: replace with a real Teenagers Church photo
+      image: "https://placehold.co/1000x520/ede7da/80182a?text=Teenagers+Church"
     }
   },
   sermons: [
@@ -1544,6 +1731,7 @@ function switchCongregation(congId) {
   });
 
   // Update card content
+  const imageElem = document.getElementById('cong-image');
   const badgeElem = document.getElementById('cong-badge');
   const titleElem = document.getElementById('cong-title');
   const timeElem = document.getElementById('cong-time');
@@ -1551,6 +1739,10 @@ function switchCongregation(congId) {
   const descElem = document.getElementById('cong-desc');
   const featuresList = document.getElementById('cong-features');
 
+  if (imageElem && data.image) {
+    imageElem.src = data.image;
+    imageElem.alt = data.name;
+  }
   if (badgeElem) badgeElem.innerText = data.badge;
   if (titleElem) titleElem.innerText = data.name;
   if (timeElem) timeElem.innerText = data.time;
