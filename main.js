@@ -2,7 +2,7 @@
 // Single Page Application (SPA) Controller
 
 // --- DATA STORE ---
-export const CHURCH_DATA = {
+ const CHURCH_DATA = {
   name: "RCBC Chapel of Praise",
   subtitle: "Main Campus · Redemption City",
   motto: "Raising Christ's Ambassadors",
