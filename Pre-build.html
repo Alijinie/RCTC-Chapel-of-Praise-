@@ -37,47 +37,20 @@
       }
     }
 
-    /* True glassmorphism system — translucent + blur + saturation */
+    /* Custom Glass & Elevation styling */
     .glass {
-      background: rgba(255, 255, 255, 0.62);
-      backdrop-filter: blur(18px) saturate(1.4);
-      -webkit-backdrop-filter: blur(18px) saturate(1.4);
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: 0 8px 32px -8px rgba(45, 35, 25, 0.18), inset 0 1px 0 rgba(255,255,255,.6);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(220, 212, 200, 0.7);
     }
+
     .glass-pill {
-      background: rgba(255, 255, 255, 0.68);
-      backdrop-filter: blur(20px) saturate(1.5);
-      -webkit-backdrop-filter: blur(20px) saturate(1.5);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 8px 28px -6px rgba(40, 30, 25, 0.16), inset 0 1px 0 rgba(255,255,255,.65);
-    }
-    .glass-dark {
-      background: rgba(28, 25, 23, 0.62);
-      backdrop-filter: blur(18px) saturate(1.3);
-      -webkit-backdrop-filter: blur(18px) saturate(1.3);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: 0 12px 40px -10px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12);
-    }
-    .glass-chip {
-      background: rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(12px) saturate(1.3);
-      -webkit-backdrop-filter: blur(12px) saturate(1.3);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
-    }
-    /* Ambient page backdrop so glass has something to refract */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(42rem 26rem at 8% -4%, rgba(128,24,42,.12), transparent 60%),
-        radial-gradient(38rem 24rem at 95% 6%, rgba(217,164,65,.14), transparent 60%),
-        radial-gradient(46rem 30rem at 50% 110%, rgba(128,24,42,.08), transparent 60%),
-        #f7f4ed;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(226, 219, 208, 0.85);
+      box-shadow: 0 4px 20px -2px rgba(40, 30, 25, 0.06);
     }
 
     .card-cream {
@@ -126,39 +99,6 @@
     .marquee-container:hover .marquee-track {
       animation-play-state: paused;
     }
-
-    /* Polished responsive modals */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes modal-pop {
-      from { opacity: 0; transform: translateY(16px) scale(.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    .animate-fadeIn { animation: fadeIn .35s ease both; }
-    .modal-backdrop {
-      overflow-y: auto;
-      overscroll-behavior: contain;
-    }
-    .modal-panel {
-      animation: modal-pop .28s ease both;
-      max-height: 92vh;
-      max-height: 92dvh;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      scrollbar-width: thin;
-    }
-    .modal-panel::-webkit-scrollbar { width: 6px; }
-    .modal-panel::-webkit-scrollbar-thumb { background: #d6cfc2; border-radius: 99px; }
-    .modal-hero-img { transition: transform .6s ease; }
-    .modal-panel:hover .modal-hero-img { transform: scale(1.04); }
-    @media (max-width: 380px) {
-      .modal-panel { border-radius: 1.1rem !important; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .marquee-track, .modal-panel, .animate-fadeIn { animation: none !important; }
-    }
   </style>
     
     
@@ -168,8 +108,8 @@
     <div id="toast-container" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
     <!-- Floating Top Navigation Pill -->
-    <header class="fixed top-3 sm:top-4 lg:top-5 inset-x-0 z-40 w-full max-w-6xl xl:max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pointer-events-none">
-      <div class="glass-pill pointer-events-auto rounded-2xl sm:rounded-full px-4 sm:px-5 py-2.5 flex items-center justify-between transition-all">
+    <header class="fixed top-3 sm:top-4 inset-x-0 z-40 max-w-4xl mx-auto px-3.5 sm:px-6 pointer-events-none">
+      <div class="pointer-events-auto bg-white/95 backdrop-blur-md rounded-full px-4 sm:px-5 py-2.5 border border-stone-200/80 shadow-md flex items-center justify-between transition-all">
         <!-- Logo & Title -->
         <a href="#home" onclick="window.switchTab('home'); return false;" class="flex items-center gap-2.5 sm:gap-3 group">
           <div class="w-14 h-14 sm:w-14 sm:h-14 rounded-xl bg-[#80182a] text-white flex items-center justify-center shadow-sm flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -204,43 +144,43 @@
     </header>
 
     <!-- Main Views Container -->
-    <main class="flex-1 w-full max-w-6xl xl:max-w-7xl mx-auto pt-20 sm:pt-24 lg:pt-28 pb-28 px-3.5 sm:px-6 lg:px-8">
+    <main class="flex-1 pt-20 sm:pt-24 pb-28 px-3.5 sm:px-6 max-w-4xl mx-auto w-full">
       
       <!-- ==================================================== -->
       <!-- TAB 1: HOME TAB                                      -->
       <!-- ==================================================== -->
       <section id="tab-home" class="tab-view space-y-6 sm:space-y-8 animate-fadeIn">
         <!-- Sanctuary Hero Card -->
-        <div class="relative rounded-3xl lg:rounded-[2rem] overflow-hidden min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] p-6 sm:p-10 lg:p-12 flex flex-col justify-between text-white shadow-xl border border-white/20">
+        <div class="relative rounded-3xl overflow-hidden min-h-[440px] sm:min-h-[480px] p-6 sm:p-10 flex flex-col justify-between text-white shadow-xl border border-stone-200/40">
           <img src="133.jpg" alt="Chapel of Praise Sanctuary Interior" class="absolute inset-0 w-full h-full object-cover brightness-[0.45]" />
           <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent"></div>
 
           <!-- Top Badge -->
           <div class="relative z-10 self-start">
-            <span class="glass-chip inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest text-rose-100 shadow-sm">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-white/20 backdrop-blur-md border border-white/30 text-rose-100 shadow-sm">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               RCTC MAIN CAMPUS · REDEMPTION CITY
             </span>
           </div>
 
           <!-- Hero Bottom Details -->
-          <div class="relative z-10 space-y-3 pt-24 sm:pt-32 lg:pt-40 max-w-2xl">
-            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[0.95]">
+          <div class="relative z-10 space-y-3 pt-24 sm:pt-32">
+            <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-white leading-none">
               Chapel of Praise
             </h1>
             <p class="font-serif italic text-rose-200 text-xl sm:text-2xl">
               Raising Christ's Ambassadors
             </p>
-            <p class="text-stone-200 text-xs sm:text-sm lg:text-base max-w-xl leading-relaxed">
+            <p class="text-stone-200 text-xs sm:text-sm max-w-xl leading-relaxed">
               The institutional campus parish of the Redeemed Christian Theological College inside Redemption City. A consecrated multi-generational house of worship, doctrinal integrity, and apostolic power.
             </p>
 
             <div class="flex flex-wrap items-center gap-3 pt-2">
-              <button data-open-modal="modal-plan-visit" class="glass bg-white/85 hover:bg-white text-stone-900 px-5 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all shadow-md flex items-center gap-1.5">
+              <button data-open-modal="modal-plan-visit" class="bg-white hover:bg-stone-100 text-stone-900 px-5 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all shadow-md flex items-center gap-1.5">
                 <span>Plan your visit</span>
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
-              <button data-open-modal="modal-live-stream" class="glass-chip hover:bg-white/30 text-white px-5 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all flex items-center gap-2">
+              <button data-open-modal="modal-live-stream" class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-5 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-red-400 animate-ping"></span>
                 <span>Sunday live</span>
               </button>
@@ -249,22 +189,22 @@
         </div>
 
         <!-- Glass Countdown Card (Live Ticker to Next Sunday 8:00 AM) -->
-        <div class="glass rounded-3xl p-6 sm:p-7 lg:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4 lg:gap-8">
+        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div class="space-y-1">
             <div class="flex items-center gap-2">
               <span class="inline-block w-2 h-2 rounded-full bg-[#80182a]"></span>
               <span class="text-[10px] sm:text-[11px] font-bold tracking-widest text-[#80182a] uppercase">NEXT SUNDAY CELEBRATION SERVICE</span>
             </div>
-            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900">Sunday Celebration & Word</h3>
-            <p class="text-xs sm:text-sm text-stone-600">Main Sanctuary & Youth Expression · 8:00 AM Prompt</p>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900">Sunday Celebration & Word</h3>
+            <p class="text-xs text-stone-600">Main Sanctuary & Youth Expression · 8:00 AM Prompt</p>
           </div>
 
-          <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
-            <div class="glass rounded-2xl px-4 py-2.5 text-center">
+          <div class="flex items-center gap-4">
+            <div class="bg-[#f7f4ed] border border-stone-200 rounded-2xl px-4 py-2.5 text-center">
               <span class="text-[9px] uppercase tracking-widest text-stone-500 font-bold block">COUNTDOWN</span>
               <span id="sunday-countdown-text" class="font-mono font-bold text-sm sm:text-base text-[#80182a]">02d 12h 18m 42s</span>
             </div>
-            <button data-open-modal="modal-plan-visit" class="bg-[#80182a] hover:bg-[#6e1423] text-white px-4 sm:px-5 py-3 rounded-2xl text-xs font-semibold transition-all shadow-sm">
+            <button data-open-modal="modal-plan-visit" class="bg-[#80182a] hover:bg-[#6e1423] text-white px-4 py-3 rounded-2xl text-xs font-semibold transition-all shadow-sm">
               Plan visit
             </button>
           </div>
@@ -383,7 +323,7 @@
             <p class="text-xs sm:text-sm text-stone-600">Consecrated times of praise, expository discipleship, and prayer altar.</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Sunday -->
             <div onclick="window.openActivityModal('sunday')" class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-sm space-y-2 hover:border-[#80182a]/40 hover:shadow-md transition-all cursor-pointer group">
               <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">SUNDAYS · 8:00 AM</span>
@@ -426,8 +366,8 @@
         </div>
 
         <!-- Office of the Chaplain Card -->
-        <div class="bg-white rounded-3xl p-5 sm:p-8 border border-stone-200/80 shadow-sm flex flex-col md:flex-row gap-5 sm:gap-6 items-start">
-          <img src="images/chaplain-portrait.jpg" alt="Portrait of the Chaplain" class="w-full md:w-48 h-56 sm:h-64 md:h-56 object-cover rounded-2xl shadow-sm border border-stone-200 flex-shrink-0" />
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm flex flex-col md:flex-row gap-6 items-start">
+          <img src="/images/chaplain_portrait_1788487465716.jpg" alt="Portrait of the Chaplain" class="w-full md:w-48 h-56 object-cover rounded-2xl shadow-sm border border-stone-200 flex-shrink-0" />
           <div class="space-y-3">
             <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">OFFICE OF THE CHAPLAIN</span>
             <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900">A welcome to our campus parish</h3>
@@ -459,11 +399,11 @@
             <p class="text-xs sm:text-sm text-stone-600">Messages of welcome and covering from those who watch over this house.</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <!-- Elder 1: The Provost -->
             <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col">
               <!-- PLACEHOLDER IMAGE: replace src with the Provost's real photo -->
-              <img src="images/provost-portrait.jpg" alt="Portrait of the Provost" class="w-full h-56 sm:h-60 object-cover" />
+              <img src="pr.jpg" alt="Portrait of the Provost" class="w-full h-56 object-cover" />
               <div class="p-5 space-y-2 flex flex-col flex-1">
                 <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">THE PROVOST</span>
                 <!-- PLACEHOLDER NAME: replace with the Provost's real name -->
@@ -481,7 +421,7 @@
             <!-- Elder 2: The Deputy Provost -->
             <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col">
               <!-- PLACEHOLDER IMAGE: replace src with the Deputy Provost's real photo -->
-              <img src="images/deputy-provost-portrait.jpg" alt="Portrait of the Deputy Provost" class="w-full h-56 sm:h-60 object-cover" />
+              <img src="dp2.png" alt="Portrait of the Deputy Provost" class="w-full h-56 object-cover" />
               <div class="p-5 space-y-2 flex flex-col flex-1">
                 <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">THE DEPUTY PROVOST</span>
                 <!-- PLACEHOLDER NAME: replace with the Deputy Provost's real name -->
@@ -490,22 +430,6 @@
                   "Every student who passes through this campus is being shaped for global impact. We labour daily so that what you carry from here outlives every classroom."
                 </p>
                 <button data-open-modal="modal-elder-deputy-provost" class="text-xs font-semibold text-white px-4 py-2 rounded-xl bg-[#80182a] hover:bg-[#6e1423] pt-1 inline-flex items-center gap-1 self-start">
-                  <span>Read full message</span>
-                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Elder 3: The Chaplain -->
-            <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col sm:col-span-2 lg:col-span-1">
-              <img src="images/chaplain-portrait.jpg" alt="Portrait of the Chaplain" class="w-full h-56 sm:h-60 object-cover" />
-              <div class="p-5 space-y-2 flex flex-col flex-1">
-                <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">THE CHAPLAIN</span>
-                <h3 class="font-serif text-lg font-bold text-stone-900 leading-snug">Pastor [Chaplain's Full Name]</h3>
-                <p class="text-xs text-stone-600 leading-relaxed flex-1">
-                  "The altar stays lit because of you. Bring your burdens, your questions, and your praise — heaven is listening, and God still answers by fire."
-                </p>
-                <button data-open-modal="modal-elder-chaplain" class="text-xs font-semibold text-white px-4 py-2 rounded-xl bg-[#80182a] hover:bg-[#6e1423] pt-1 inline-flex items-center gap-1 self-start">
                   <span>Read full message</span>
                   <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
@@ -526,7 +450,7 @@
             <span class="text-xs text-stone-500">Decipleship & fellowship</span>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm h-48 sm:h-56 relative group">
               <img src="out.jpg" alt="Campus Praise and Worship" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
@@ -609,7 +533,7 @@
 
         
         <!-- Expression Pill Selector -->
-        <div class="glass flex flex-wrap gap-2 p-1.5 rounded-2xl w-fit max-w-full overflow-x-auto">
+        <div class="flex flex-wrap gap-2 p-1.5 bg-white rounded-2xl border border-stone-200/80 shadow-sm w-fit">
           <button data-cong-pill="sanctuary" class="px-4 py-2 rounded-full text-xs font-bold transition-all bg-[#80182a] text-white shadow-sm">
             Main Sanctuary
           </button>
@@ -625,7 +549,7 @@
         <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm">
           <!-- PLACEHOLDER IMAGE: swapped automatically per pill via switchCongregation(); -->
           <!-- replace the "image" values in CHURCH_DATA.congregations with real photos.  -->
-          <img id="cong-image" src="church 2.jpg" alt="Main Sanctuary" class="w-full h-52 sm:h-64 lg:h-80 object-cover" />
+          <img id="cong-image" src="church 2.jpg" alt="Main Sanctuary" class="w-full h-52 sm:h-64 object-cover" />
 
           <div class="p-6 sm:p-8 space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 pb-4">
@@ -675,7 +599,7 @@
             <p class="text-xs sm:text-sm text-stone-600">Put your spiritual gifts and professional skills to service on campus.</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 lg:gap-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
             <!-- Choir -->
             <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2 hover:border-[#80182a]/50 transition-colors">
               <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest">MUSIC</span>
@@ -933,7 +857,7 @@
               <img src="4.jpg" alt="Campus chapel" class="h-36 sm:h-44 w-56 sm:w-64 object-cover rounded-2xl flex-shrink-0" />
               <img src="3.jpg" alt="Bible study session" class="h-36 sm:h-44 w-56 sm:w-64 object-cover rounded-2xl flex-shrink-0" />
               <img src="2.jpg" alt="Youth church" class="h-36 sm:h-44 w-56 sm:w-64 object-cover rounded-2xl flex-shrink-0" />
-              <img src="1.jpg" alt="Holy Ghost Service" class="h-36 sm:h-44 w-56 sm:w-64 object-cover rounded-2xl flex-shrink-0" />
+              <img src="1.jpg" alt="Holy Ghost Service" class="h-36 sm:h:44 w-56 sm:w:64 object-cover rounded-2xl flex-shrink-0" />
             </div>
           </div>
         </div>
@@ -1137,7 +1061,7 @@
 
         <!-- Interactive Map Card -->
         <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm">
-          <div id="visit-map-container" class="h-64 sm:h-80 lg:h-96 w-full z-10"></div>
+          <div id="visit-map-container" class="h-64 sm:h-80 w-full z-10"></div>
           <div class="p-3.5 bg-[#fbf9f4] border-t border-stone-200/60 flex items-center justify-between text-xs text-stone-600">
             <div class="flex items-center gap-1.5 font-medium">
               <svg class="w-4 h-4 text-[#80182a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
@@ -1151,7 +1075,7 @@
         </div>
 
         <!-- Location Cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3.5 lg:gap-5">
+        <div class="space-y-3.5">
           <!-- Card 1 -->
           <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-sm space-y-1">
             <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">LOCATION</span>
@@ -1233,8 +1157,8 @@
     </main>
 
     <!-- Floating Audio Player Bar (Simulated Sermon Playback) -->
-    <div id="floating-audio-player" class="hidden fixed bottom-20 sm:bottom-24 inset-x-0 z-40 w-full max-w-xl lg:max-w-2xl mx-auto px-4 pointer-events-none">
-      <div class="glass-dark pointer-events-auto rounded-2xl p-3 sm:p-4 text-white flex items-center justify-between gap-3">
+    <div id="floating-audio-player" class="hidden fixed bottom-20 sm:bottom-24 inset-x-0 z-40 max-w-xl mx-auto px-4 pointer-events-none">
+      <div class="pointer-events-auto bg-[#1c1917]/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-stone-800 shadow-2xl text-white flex items-center justify-between gap-3">
         <div class="flex items-center gap-3 overflow-hidden">
           <button id="audio-play-toggle" onclick="window.togglePlayPause()" class="w-9 h-9 rounded-xl bg-[#80182a] hover:bg-[#6e1423] flex items-center justify-center flex-shrink-0 transition-transform">
             <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
@@ -1255,8 +1179,8 @@
     </div>
 
     <!-- Floating Mobile/Tablet Bottom Navigation Capsule Dock -->
-    <nav class="fixed bottom-4 inset-x-3 sm:inset-x-0 mx-auto w-fit max-w-[calc(100vw-1.5rem)] z-40 text-white pointer-events-auto sm:hidden">
-      <div class="glass-dark rounded-full px-2 py-1.5 flex items-center gap-1 overflow-x-auto no-scrollbar max-w-full">
+    <nav class="fixed bottom-4 inset-x-0 mx-auto w-fit z-40 text-white pointer-events-auto sm:hidden">
+      <div class="bg-[#80182a]/95 backdrop-blur-md rounded-full px-2 py-1.5 border border-stone-800 shadow-2xl flex items-center gap-1 sm:gap-2">
         <button data-dock-tab="home" class="dock-btn w-9 h-9 rounded-full bg-stone-800 text-white flex items-center justify-center transition-all text-xs font-semibold shadow-inner">
           <svg class="dock-icon w-4 h-4 text-rose-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span class="dock-label hidden text-white">Home</span>
@@ -1286,8 +1210,8 @@
 
     <!-- Footer -->
     <footer class="bg-[#191412] text-stone-300 pt-16 pb-28 sm:pb-20 border-t border-stone-800 mt-20">
-      <div class="max-w-6xl xl:max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+      <div class="max-w-4xl mx-auto px-6 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Brand Info -->
           <div class="space-y-4">
             <div class="flex items-center gap-3">
@@ -1367,142 +1291,87 @@
     <!-- ==================================================== -->
 
     <!-- Modal 1: Plan Visit Modal -->
-    <div id="modal-plan-visit" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true" aria-labelledby="plan-visit-title">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <!-- Hero -->
-        <div class="relative h-36 sm:h-48 md:h-56 overflow-hidden flex-shrink-0">
-          <img src="images/modal-plan-visit-hero.jpg" alt="Welcome team at Chapel of Praise entrance" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-plan-visit" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur text-white text-lg leading-none transition-colors">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/20 backdrop-blur-md border border-white/30 text-white">Sunday Guest · First Visit</span>
-            <h3 id="plan-visit-title" class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1.5 leading-tight">Plan Your Visit</h3>
-            <p class="text-[11px] sm:text-xs text-stone-200 mt-0.5">We will save you a seat + walk you to Youth, Teens or Main Sanctuary.</p>
+    <div id="modal-plan-visit" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">SUNDAY GUEST</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Plan Your Visit</h3>
           </div>
+          <button data-close-modal="modal-plan-visit" class="text-stone-400 hover:text-stone-700 text-xl leading-none">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 md:p-7 space-y-4">
-          <!-- What to expect strip -->
-          <div class="grid grid-cols-3 gap-2 text-center">
-            <div class="bg-[#f8f6f0] rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-stone-200/60">
-              <span class="text-base sm:text-lg block">🅿️</span>
-              <span class="text-[10px] sm:text-[11px] font-bold text-stone-800 block mt-1 leading-tight">Free parking<br/>+ ushers</span>
-            </div>
-            <div class="bg-[#f8f6f0] rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-stone-200/60">
-              <span class="text-base sm:text-lg block">☕</span>
-              <span class="text-[10px] sm:text-[11px] font-bold text-stone-800 block mt-1 leading-tight">Warm welcome<br/>from 7:30 AM</span>
-            </div>
-            <div class="bg-[#f8f6f0] rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-stone-200/60">
-              <span class="text-base sm:text-lg block">👨‍👩‍👧</span>
-              <span class="text-[10px] sm:text-[11px] font-bold text-stone-800 block mt-1 leading-tight">Kids, Youth<br/>& Teens</span>
-            </div>
-          </div>
-          <!-- Thumbs -->
-          <div class="grid grid-cols-3 gap-2">
-            <img src="images/modal-plan-visit-sanctuary.jpg" alt="Main sanctuary seats" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-            <img src="images/modal-plan-visit-youth.jpg" alt="Youth church worship" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-            <img src="images/modal-plan-visit-protocol.jpg" alt="Protocol team welcoming guests" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          </div>
         <form id="form-plan-visit" class="space-y-3 pt-1">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="sm:col-span-2">
+          <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Your Full Name</label>
-            <input type="text" placeholder="e.g. Bro. Emmanuel Adeleke" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]" />
+            <input type="text" placeholder="e.g. Bro. Emmanuel Adeleke" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]" />
           </div>
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Phone / WhatsApp</label>
-            <input type="tel" placeholder="+234 800 000 0000" class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]" />
+            <input type="tel" placeholder="+234 800 000 0000" class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]" />
           </div>
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Service</label>
-            <select class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]">
+            <select class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]">
               <option value="Sunday Celebration (8:00 AM) - Main Sanctuary">Sunday Celebration (8:00 AM) - Main Sanctuary</option>
               <option value="Youth Expression (8:00 AM) - Youth Church">Youth Expression (8:00 AM) - Youth Church</option>
               <option value="Teenagers Church (8:00 AM) - The Overflow">Teenagers Church (8:00 AM) - The Overflow</option>
             </select>
           </div>
-          </div>
-          <div class="bg-rose-50 border border-rose-100 rounded-xl px-3.5 py-2.5 text-[11px] sm:text-xs text-stone-600 leading-relaxed">Arrive 20 mins early — our protocol team in wine sashes will meet you at the forecourt, help with parking & seat your family together.</div>
-          <button type="submit" class="w-full bg-[#80182a] hover:bg-[#6e1423] text-white py-3 sm:py-3.5 rounded-xl font-semibold text-xs sm:text-sm transition-colors shadow-sm">
+          <button type="submit" class="w-full bg-[#80182a] hover:bg-[#6e1423] text-white py-3 rounded-xl font-semibold text-xs transition-colors shadow-sm">
             Confirm Visit Details
           </button>
-          <p class="text-center text-[11px] text-stone-400">Sundays 8:00 AM · Christ's Ambassadors Road, Redemption City</p>
         </form>
-        </div>
       </div>
     </div>
 
     <!-- Modal 2: Prayer Request Modal -->
-    <div id="modal-prayer-request" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
-          <img src="images/modal-prayer-hero.jpg" alt="Hands lifted in intercessory prayer" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#2a0a12]/90 via-[#2a0a12]/35 to-transparent"></div>
-          <button data-close-modal="modal-prayer-request" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="text-[10px] font-bold tracking-widest text-rose-200 uppercase">Confidential Altar · Answered by Fire</span>
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Chaplain's Prayer Desk</h3>
-            <p class="text-[11px] sm:text-xs text-stone-200 mt-0.5">Private. Pastoral. Covered daily at 5:30 AM altar.</p>
+    <div id="modal-prayer-request" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">CONFIDENTIAL ALTAR</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Chaplain's Prayer Desk</h3>
           </div>
+          <button data-close-modal="modal-prayer-request" class="text-stone-400 hover:text-stone-700 text-xl leading-none">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 md:p-7 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] sm:text-xs">
-            <div class="flex items-center gap-2 bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><span>🔒</span><span class="font-semibold text-stone-700">100% confidential</span></div>
-            <div class="flex items-center gap-2 bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><span>🕯️</span><span class="font-semibold text-stone-700">Prayed over 7 days</span></div>
-            <div class="flex items-center gap-2 bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><span>📞</span><span class="font-semibold text-stone-700">Follow-up if wanted</span></div>
-          </div>
-          <blockquote class="border-l-4 border-[#80182a] pl-3 sm:pl-4 italic text-[11px] sm:text-xs text-stone-600 leading-relaxed">"Call unto me, and I will answer thee, and shew thee great and mighty things." — Jer. 33:3</blockquote>
         <form id="form-prayer-desk" class="space-y-3 pt-1">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Your Name (or Anonymous)</label>
-            <input type="text" placeholder="Your Name" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]" />
+            <input type="text" placeholder="Your Name" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]" />
           </div>
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Phone or Email (Optional)</label>
-            <input type="text" placeholder="Contact details for pastoral follow-up" class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]" />
-          </div>
+            <input type="text" placeholder="Contact details for pastoral follow-up" class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]" />
           </div>
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Your Prayer Petition</label>
-            <textarea rows="4" placeholder="Type your prayer request here... (health, academics, family, breakthrough)" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]"></textarea>
+            <textarea rows="4" placeholder="Type your prayer request here..." required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]"></textarea>
           </div>
-          <div class="flex flex-col sm:flex-row gap-2">
-            <button type="submit" class="flex-1 bg-[#80182a] hover:bg-[#6e1423] text-white py-3 rounded-xl font-semibold text-xs sm:text-sm transition-colors shadow-sm">
-              Send to Chaplain's Office
-            </button>
-            <button type="button" data-close-modal="modal-prayer-request" class="sm:w-28 py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Later</button>
-          </div>
+          <button type="submit" class="w-full bg-[#80182a] hover:bg-[#6e1423] text-white py-3 rounded-xl font-semibold text-xs transition-colors shadow-sm">
+            Send to Chaplain's Office
+          </button>
         </form>
-        </div>
       </div>
     </div>
 
     <!-- Modal 3: Service Notes Modal -->
-    <div id="modal-service-notes" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-xl w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
-          <img src="images/modal-service-notes-hero.jpg" alt="Holy Ghost Service night crowd at Redemption Arena" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-service-notes" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">Tonight · Service Notes · First Friday</span>
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Holy Ghost Service</h3>
-            <p class="text-[11px] sm:text-xs text-stone-200">Redemption City Arena · Buses leave Chapel forecourt 5:00 PM</p>
+    <div id="modal-service-notes" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">TONIGHT · SERVICE NOTES</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Holy Ghost Service</h3>
+            <p class="text-xs text-stone-500">Redemption City · First Friday Gathering</p>
           </div>
+          <button data-close-modal="modal-service-notes" class="text-stone-400 hover:text-stone-700 text-xl leading-none">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-4">
 
-        <div class="space-y-3 text-sm text-stone-700">
+        <div class="space-y-3 text-sm text-stone-700 max-h-[60vh] overflow-y-auto pr-1">
           <div class="bg-[#f8f6f0] rounded-2xl p-4 border border-stone-200/60">
             <h4 class="font-serif font-bold text-base text-stone-900 mb-1">Chapel Exhortation & Focus</h4>
             <p class="text-xs text-stone-600 leading-relaxed">
               As the Bible College family joins millions across Redemption City and the global house, our corporate posture is consecrated anticipation.
             </p>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3">
-              <img src="images/modal-service-notes-worship.jpg" alt="Worshippers with raised hands" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-              <img src="images/modal-service-notes-choir.jpg" alt="Choir ministration on stage" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-              <img src="images/modal-service-notes-altar.jpg" alt="Altar call prayer moment" class="h-16 sm:h-20 w-full object-cover rounded-xl col-span-2 sm:col-span-1" loading="lazy" />
-            </div>
           </div>
 
           <div>
@@ -1529,88 +1398,62 @@
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
-          <button onclick="window.copyServiceNotes()" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 flex items-center justify-center gap-1.5 transition-colors">
+        <div class="flex gap-2 pt-2 border-t border-stone-100">
+          <button onclick="window.copyServiceNotes()" class="flex-1 py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 flex items-center justify-center gap-1.5 transition-colors">
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             <span>Copy Notes</span>
           </button>
-          <button data-close-modal="modal-service-notes" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
+          <button data-close-modal="modal-service-notes" class="flex-1 py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
             Done
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 4: Sunday Live Stream Modal -->
-    <div id="modal-live-stream" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-xl w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-36 sm:h-52 overflow-hidden flex-shrink-0">
-          <img src="images/modal-livestream-hero.jpg" alt="Sanctuary stage during live broadcast" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/35 to-transparent"></div>
-          <button data-close-modal="modal-live-stream" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 flex flex-wrap items-end justify-between gap-2">
-            <div>
-              <div class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                <span class="text-[10px] font-bold tracking-widest text-red-300 uppercase">Broadcast Portal · Sundays 8 AM WAT</span>
-              </div>
-              <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Sunday Sanctuary Live</h3>
+    <div id="modal-live-stream" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+              <span class="text-[10px] font-bold tracking-widest text-red-600 uppercase">BROADCAST PORTAL</span>
             </div>
-            <span class="text-[10px] sm:text-[11px] font-bold bg-red-600 text-white px-2.5 py-1 rounded-full">● REC · 1080p</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Sunday Sanctuary Live</h3>
           </div>
+          <button data-close-modal="modal-live-stream" class="text-stone-400 hover:text-stone-700 text-xl leading-none">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-4">
+
         <div class="relative bg-stone-900 rounded-2xl overflow-hidden aspect-video flex flex-col items-center justify-center text-white p-6 text-center">
-          <img src="images/modal-livestream-stage.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy" />
-          <div class="relative z-10 flex flex-col items-center">
           <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-3">
             <svg class="w-7 h-7 text-white fill-current translate-x-0.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </div>
           <span class="font-serif font-bold text-lg text-white">Sunday Broadcast Feed</span>
           <p class="text-xs text-stone-300 mt-1 max-w-xs">Live stream goes active every Sunday at 8:00 AM WAT. Join our global online family.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] sm:text-xs">
-          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><strong class="block text-stone-900">Order of Service</strong><span class="text-stone-600">Praise · Word · Communion (1st Sun)</span></div>
-          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><strong class="block text-stone-900">Give Online</strong><span class="text-stone-600">Tithe & offering while you watch</span></div>
-          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><strong class="block text-stone-900">Testimonies</strong><span class="text-stone-600">Share yours after service</span></div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-1">
-          <button onclick="window.showToast('Subscribed to Sunday Live Stream notifications!', 'success'); window.closeModal('modal-live-stream')" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs sm:text-sm transition-colors text-center">
+        <div class="flex gap-2 pt-2">
+          <button onclick="window.showToast('Subscribed to Sunday Live Stream notifications!', 'success'); window.closeModal('modal-live-stream')" class="flex-1 py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs transition-colors text-center">
             Set Broadcast Alert
           </button>
-          <button data-close-modal="modal-live-stream" class="sm:w-32 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Close</button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 5: Serve Signup Modal -->
-    <div id="modal-serve-signup" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
-          <img src="images/modal-serve-hero.jpg" alt="Volunteers serving together at Chapel of Praise" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-serve-signup" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">Serving at the Chapel · 6 Teams</span>
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Join a Department</h3>
-            <p class="text-[11px] sm:text-xs text-stone-200">Choir · Protocol · Media · Prayer · Outreach · Mentors</p>
+    <div id="modal-serve-signup" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">SERVING AT THE CHAPEL</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Join a Department</h3>
           </div>
+          <button data-close-modal="modal-serve-signup" class="text-stone-400 hover:text-stone-700 text-xl leading-none">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-4">
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            <img src="images/modal-serve-choir.jpg" alt="Choir rehearsal" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-            <img src="images/modal-serve-media.jpg" alt="Media team at broadcast desk" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-            <img src="images/modal-serve-outreach.jpg" alt="Outreach volunteers sharing welfare" class="h-16 sm:h-20 w-full object-cover rounded-xl col-span-2 sm:col-span-1" loading="lazy" />
-          </div>
-          <p class="text-[11px] sm:text-xs text-stone-600 leading-relaxed bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3.5 py-2.5">No experience needed for most teams — training, mentorship & a 2-week onboarding are provided. Teens mentors require a background check.</p>
         <form id="form-serve-signup" class="space-y-3 pt-1">
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Select Department</label>
-            <select class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]">
+            <select class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]">
               <option>Choir & Music Ministry</option>
               <option>Protocol & Ushering</option>
               <option>Media & Live Broadcast</option>
@@ -1619,85 +1462,70 @@
               <option>Teens & Youth Mentors</option>
             </select>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Full Name</label>
-            <input type="text" placeholder="e.g. Sis. Deborah Adeyemi" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]" />
+            <input type="text" placeholder="e.g. Sis. Deborah Adeyemi" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]" />
           </div>
           <div>
-            <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Who are you?</label>
-            <select class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]">
+            <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">Brief descrption</label>
+            <select class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]">
               <option>RCBC Student Minister</option>
               <option>RCBC Faculty / Staff</option>
               <option>Redemption City Resident</option>
               <option>Visiting Believer</option>
             </select>
           </div>
-          <div class="sm:col-span-2">
+          <div>
             <label class="block text-[10px] font-bold text-stone-500 uppercase mb-1">WhatsApp Phone Number</label>
-            <input type="tel" placeholder="+234 800 000 0000" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-[#80182a]" />
+            <input type="tel" placeholder="+234 800 000 0000" required class="w-full bg-[#f8f6f0] border border-stone-200 rounded-xl px-4 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-[#80182a]" />
           </div>
-          </div>
-          <button type="submit" class="w-full bg-[#80182a] hover:bg-[#6e1423] text-white py-3 sm:py-3.5 rounded-xl font-semibold text-xs sm:text-sm transition-colors shadow-sm">
+          <button type="submit" class="w-full bg-[#80182a] hover:bg-[#6e1423] text-white py-3 rounded-xl font-semibold text-xs transition-colors shadow-sm">
             Submit Serving Enrollment
           </button>
-          <p class="text-center text-[11px] text-stone-400">We reply within 48 hours · Rehearsals Fridays 5 PM</p>
         </form>
-        </div>
       </div>
     </div>
 
     <!-- Modal 5b: Weekly Activity Detail (dynamically populated via openActivityModal) -->
-    <div id="modal-activity-detail" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
-          <img id="activity-modal-image" src="images/modal-activity-sunday.jpg" alt="Weekly gathering at Chapel of Praise" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-activity-detail" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span id="activity-modal-tag" class="inline-block text-[10px] font-bold tracking-widest text-amber-300 uppercase">SUNDAYS · 8:00 AM</span>
-            <h3 id="activity-modal-title" class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Celebration Service</h3>
-            <p id="activity-modal-location" class="text-[11px] sm:text-xs text-stone-200 mt-0.5">Main Sanctuary</p>
+    <div id="modal-activity-detail" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span id="activity-modal-tag" class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">SUNDAYS · 8:00 AM</span>
+            <h3 id="activity-modal-title" class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Celebration Service</h3>
+            <p id="activity-modal-location" class="text-xs text-stone-500 mt-0.5">Main Sanctuary</p>
           </div>
+          <button data-close-modal="modal-activity-detail" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-4">
+
         <p id="activity-modal-description" class="text-xs sm:text-sm text-stone-600 leading-relaxed"></p>
-        <div class="grid grid-cols-2 gap-2">
-          <img src="images/modal-activity-praise.jpg" alt="Praise and worship moment" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-activity-word.jpg" alt="Preaching of the Word" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
 
         <div class="pt-1">
           <span class="text-[10px] font-bold tracking-widest text-stone-500 uppercase block mb-2">What to expect</span>
           <ul id="activity-modal-highlights" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></ul>
         </div>
-        <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3.5 py-2.5 text-[11px] sm:text-xs text-stone-600">Come 20 mins early for prayer & seating · Youth & Teens meet in parallel halls · Communion every first Sunday.</div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
-          <button data-close-modal="modal-activity-detail" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
+        <div class="flex gap-2 pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-activity-detail" class="flex-1 py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
             Close
           </button>
-          <button onclick="window.closeModal('modal-activity-detail'); window.openModal('modal-plan-visit');" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs sm:text-sm transition-colors text-center">
+          <button onclick="window.closeModal('modal-activity-detail'); window.openModal('modal-plan-visit');" class="flex-1 py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs transition-colors text-center">
             Plan your visit
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 5c: Serving Department Detail (dynamically populated via openDepartmentModal) -->
-    <div id="modal-department-detail" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
-          <img id="dept-modal-image" src="images/modal-department-hero.jpg" alt="Department volunteers in action" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-department-detail" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span id="dept-modal-category" class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">MUSIC</span>
-            <h3 id="dept-modal-title" class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Choir & Praise Team</h3>
+    <div id="modal-department-detail" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span id="dept-modal-category" class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">MUSIC</span>
+            <h3 id="dept-modal-title" class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Choir & Praise Team</h3>
           </div>
+          <button data-close-modal="modal-department-detail" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-4">
 
         <p id="dept-modal-description" class="text-xs sm:text-sm text-stone-600 leading-relaxed"></p>
 
@@ -1710,42 +1538,28 @@
           <span class="text-[10px] font-bold tracking-widest text-stone-500 uppercase block mb-2">What you'll do</span>
           <ul id="dept-modal-responsibilities" class="space-y-1.5"></ul>
         </div>
-        <div class="grid grid-cols-3 gap-2">
-          <img src="images/modal-department-team-1.jpg" alt="Team serving during service" class="h-14 sm:h-16 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-department-team-2.jpg" alt="Volunteers in training session" class="h-14 sm:h-16 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-department-team-3.jpg" alt="Department fellowship moment" class="h-14 sm:h-16 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
-          <button data-close-modal="modal-department-detail" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
+        <div class="flex gap-2 pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-department-detail" class="flex-1 py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
             Close
           </button>
-          <button onclick="window.closeModal('modal-department-detail'); window.openModal('modal-serve-signup');" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs sm:text-sm transition-colors text-center">
+          <button onclick="window.closeModal('modal-department-detail'); window.openModal('modal-serve-signup');" class="flex-1 py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs transition-colors text-center">
             Join this department
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 5d: RCCG Vision 2032 -->
-    <div id="modal-vision-2032" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-36 sm:h-52 md:h-60 overflow-hidden flex-shrink-0">
-          <img src="images/modal-vision-2032-hero.jpg" alt="Global RCCG congregation worshipping" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
-          <button data-close-modal="modal-vision-2032" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-amber-400 text-stone-900">RCCG Global Mandate · 2032</span>
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1.5 leading-tight">Vision 2032: The Global Mandate</h3>
-            <p class="text-[11px] sm:text-xs text-stone-200 mt-0.5">Explosive Growth · Deep Discipleship · 40 Million Souls</p>
+    <div id="modal-vision-2032" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">RCCG GLOBAL MANDATE</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Vision 2032: The Global Mandate</h3>
+            <p class="text-xs text-stone-500 mt-0.5">Explosive Growth · Deep Discipleship · 40 Million Souls</p>
           </div>
-        </div>
-        <div class="p-4 sm:p-6 md:p-7">
-        <div class="grid grid-cols-3 gap-2 mb-4">
-          <img src="images/modal-vision-evangelism.jpg" alt="Street evangelism outreach" class="h-16 sm:h-20 md:h-24 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-vision-youth.jpg" alt="Youth mobilization rally" class="h-16 sm:h-20 md:h-24 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-vision-planting.jpg" alt="New parish planting celebration" class="h-16 sm:h-20 md:h-24 w-full object-cover rounded-xl" loading="lazy" />
+          <button data-close-modal="modal-vision-2032" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
 
         <div class="space-y-5 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[65vh] overflow-y-auto pr-1">
@@ -1821,166 +1635,132 @@
           </blockquote>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-stone-100">
-          <button onclick="window.closeModal('modal-vision-2032'); window.openModal('modal-serve-signup');" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Join the harvest team</button>
-          <button data-close-modal="modal-vision-2032" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs sm:text-sm transition-colors text-center">
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-vision-2032" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
             Close
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 6: The Provost's Full Message -->
-    <div id="modal-elder-provost" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-40 sm:h-52 overflow-hidden flex-shrink-0">
-          <img src="images/modal-provost-office.jpg" alt="Provost's office and campus leadership" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-elder-provost" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 flex items-center gap-3">
-            <img src="images/provost-portrait.jpg" alt="Portrait of the Provost" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover border-2 border-white/70 shadow flex-shrink-0" />
+    <div id="modal-elder-provost" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-3">
+            <!-- PLACEHOLDER IMAGE: replace with the Provost's real photo -->
+            <img src="pr.jpg" alt="Portrait of the Provost" class="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
             <div>
-              <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">The Provost</span>
-              <h3 class="font-serif text-lg sm:text-xl font-bold text-white mt-0.5 leading-tight">Prof. Rotimi Alaba Oti</h3>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">THE PROVOST</span>
+              <!-- PLACEHOLDER NAME -->
+              <h3 class="font-serif text-xl font-bold text-stone-900 mt-0.5">Prof. Rotimi Alaba Oti</h3>
             </div>
           </div>
+          <button data-close-modal="modal-elder-provost" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-3">
-        <div class="grid grid-cols-2 gap-2">
-          <img src="images/modal-provost-chapel.jpg" alt="Provost ministering in chapel" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-provost-students.jpg" alt="Provost with student ministers" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
-        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed">
+
+        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
           <p>Beloved in Christ,</p>
           <p>
             It is my joy to welcome you into a house where sound doctrine and the Spirit's fire meet. RCTC Chapel of Praise exists to raise a generation of ambassadors who will carry the gospel with both academic excellence and supernatural power.
           </p>
-          <p class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3.5 py-2.5 italic">"Sound doctrine. Spirit's fire. Academic excellence. Supernatural power."</p>
           <p>
             Whether you are here as a student minister, a faculty member, or a first-time visitor, know that you have been received into a family that will disciple, correct, and celebrate you. May you find here a covering that will nurture you for the assignment ahead.
           </p>
-          <p>Grace and peace to you,<br/><strong>The Provost</strong></p>
+          <p>Grace and peace to you,<br/>The Provost</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
-          <button data-open-modal="modal-plan-visit" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Visit on Sunday</button>
-          <button data-close-modal="modal-elder-provost" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs sm:text-sm transition-colors text-center">
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-elder-provost" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
             Close
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 7: The Deputy Provost's Full Message -->
-    <div id="modal-elder-deputy-provost" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-40 sm:h-52 overflow-hidden flex-shrink-0">
-          <img src="images/modal-deputy-provost-office.jpg" alt="Deputy Provost with faculty and students" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-elder-deputy-provost" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 flex items-center gap-3">
-            <img src="images/deputy-provost-portrait.jpg" alt="Portrait of the Deputy Provost" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover border-2 border-white/70 shadow flex-shrink-0" />
+    <div id="modal-elder-deputy-provost" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-3">
+            <!-- PLACEHOLDER IMAGE: replace with the Deputy Provost's real photo -->
+            <img src="dep.jpg" alt="Portrait of the Deputy Provost" class="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
             <div>
-              <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">The Deputy Provost</span>
-              <h3 class="font-serif text-lg sm:text-xl font-bold text-white mt-0.5 leading-tight">Dr. [Deputy Provost's Full Name]</h3>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">THE DEPUTY PROVOST</span>
+              <!-- PLACEHOLDER NAME -->
+              <h3 class="font-serif text-xl font-bold text-stone-900 mt-0.5">Dr. [Deputy Provost's Full Name]</h3>
             </div>
           </div>
+          <button data-close-modal="modal-elder-deputy-provost" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-3">
-        <div class="grid grid-cols-2 gap-2">
-          <img src="images/modal-deputy-provost-discipleship.jpg" alt="Discipleship class session" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-deputy-provost-campus.jpg" alt="Campus fellowship gathering" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
-        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed">
+
+        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
           <p>Dearly beloved,</p>
           <p>
             Every student who passes through this campus is being shaped for global impact. Behind the scenes, we labour daily in prayer, planning, and pastoral care so that what you carry from here outlives every classroom and every season on campus.
           </p>
-          <p class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3.5 py-2.5 italic">"What you carry from here must outlive every classroom."</p>
           <p>
             I encourage you to give yourself fully to the discipleship, fellowship, and academic rigour this house offers. God is not done writing your story, and we count it a privilege to walk this stretch of it with you.
           </p>
-          <p>In His service,<br/><strong>The Deputy Provost</strong></p>
+          <p>In His service,<br/>The Deputy Provost</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
-          <button data-open-modal="modal-serve-signup" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Serve with us</button>
-          <button data-close-modal="modal-elder-deputy-provost" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs sm:text-sm transition-colors text-center">
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-elder-deputy-provost" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
             Close
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 8: The Chaplain's Full Message -->
-    <div id="modal-elder-chaplain" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-40 sm:h-52 overflow-hidden flex-shrink-0">
-          <img src="images/modal-chaplain-altar.jpg" alt="Chaplain ministering at the altar" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-elder-chaplain" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6 flex items-center gap-3">
-            <img src="images/chaplain-portrait.jpg" alt="Portrait of the Chaplain" class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover border-2 border-white/70 shadow flex-shrink-0" />
+    <div id="modal-elder-chaplain" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-3">
+            <!-- PLACEHOLDER IMAGE: replace with the Chaplain's real photo -->
+            <img src="https://placehold.co/120x120/ede7da/80182a?text=Chaplain" alt="Portrait of the Chaplain" class="w-12 h-12 rounded-xl object-cover flex-shrink-0" />
             <div>
-              <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">The Chaplain</span>
-              <h3 class="font-serif text-lg sm:text-xl font-bold text-white mt-0.5 leading-tight">Pastor [Chaplain's Full Name]</h3>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">THE CHAPLAIN</span>
+              <!-- PLACEHOLDER NAME -->
+              <h3 class="font-serif text-xl font-bold text-stone-900 mt-0.5">Pastor. Daniel</h3>
             </div>
           </div>
+          <button data-close-modal="modal-elder-chaplain" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-3">
-        <div class="grid grid-cols-2 gap-2">
-          <img src="images/modal-chaplain-prayer.jpg" alt="Prayer desk intercession" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-chaplain-counsel.jpg" alt="Pastoral counselling moment" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
-        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed">
+
+        <div class="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[60vh] overflow-y-auto pr-1">
           <p>Beloved of God,</p>
           <p>
             The altar of this chapel stays lit because of you — your worship, your obedience, and your prayers. As Chaplain, my heart is to see every member of this campus family walking in wholeness: spirit, soul, and body.
           </p>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
-            <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><strong class="block">Prayer Desk</strong><span class="text-stone-600">Daily 5:30 AM altar</span></div>
-            <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><strong class="block">Digging Deep</strong><span class="text-stone-600">Tuesdays 6 PM</span></div>
-            <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5"><strong class="block">Faith Clinic</strong><span class="text-stone-600">Thursdays 6 PM</span></div>
-          </div>
           <p>
             Come as you are. Bring your burdens to the Prayer Desk, your questions to Digging Deep, and your praise to the Sunday altar, and let us carry it all to heaven together. Heaven is listening, and God still answers by fire.
           </p>
-          <p>Yours in the Master's service,<br/><strong>The Chaplain</strong></p>
+          <p>Yours in the Master's service,<br/>The Chaplain</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
-          <button data-open-modal="modal-prayer-request" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Send prayer note</button>
-          <button data-close-modal="modal-elder-chaplain" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs sm:text-sm transition-colors text-center">
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-elder-chaplain" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
             Close
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 9: "Let's Go A-Fishing" Campaign Detail -->
-    <div id="modal-lets-go-fishing" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-36 sm:h-52 md:h-60 overflow-hidden flex-shrink-0">
-          <img src="images/modal-fishing-hero.jpg" alt="Let's Go A-Fishing open-air evangelism crowd" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
-          <button data-close-modal="modal-lets-go-fishing" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-amber-400 text-stone-900">RCCG Global Evangelism · Matt 4:19</span>
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1.5 leading-tight">Let's Go A-Fishing</h3>
-            <p class="text-[11px] sm:text-xs text-stone-200">"Fishers of men" · Christmas & Easter editions</p>
+    <div id="modal-lets-go-fishing" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">RCCG GLOBAL EVANGELISM INITIATIVE</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Let's Go A-Fishing</h3>
+            <p class="text-xs text-stone-500 mt-0.5">"Fishers of men" · Matthew 4:19</p>
           </div>
+          <button data-close-modal="modal-lets-go-fishing" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 md:p-7">
-        <div class="grid grid-cols-3 gap-2 mb-4">
-          <img src="images/modal-fishing-street.jpg" alt="Street evangelism team" class="h-16 sm:h-20 md:h-24 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-fishing-medical.jpg" alt="Free medical outreach clinic" class="h-16 sm:h-20 md:h-24 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-fishing-crusade.jpg" alt="Evening crusade gathering" class="h-16 sm:h-20 md:h-24 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
-        <div class="space-y-5 text-xs sm:text-sm text-stone-700 leading-relaxed">
+
+        <div class="space-y-5 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[65vh] overflow-y-auto pr-1">
           <p>
             "Let's Go A-Fishing" is the flagship global evangelism and soul-winning initiative of The Redeemed Christian Church of God, initiated under the visionary leadership of the General Overseer, Pastor E.A. Adeboye. Held bi-annually during the Christmas and Easter seasons, it unites parishes worldwide in one mission: to step outside the church walls, spread the Gospel, plant new churches, and transform lives through community impact.
           </p>
@@ -2036,42 +1816,29 @@
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-stone-100">
-          <button onclick="window.closeModal('modal-lets-go-fishing'); window.openModal('modal-serve-signup');" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
+        <div class="flex gap-2 pt-2 border-t border-stone-100">
+          <button onclick="window.closeModal('modal-lets-go-fishing'); window.openModal('modal-serve-signup');" class="flex-1 py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
             Join the outreach team
           </button>
-          <button onclick="window.closeModal('modal-lets-go-fishing'); window.openModal('modal-give');" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs sm:text-sm transition-colors text-center">
+          <button onclick="window.closeModal('modal-lets-go-fishing'); window.openModal('modal-give');" class="flex-1 py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs transition-colors text-center">
             Partner &amp; give
           </button>
-        </div>
         </div>
       </div>
     </div>
 
     <!-- Modal 10: Partner & Give (Tithes, Offerings & Outreach Support) -->
-    <div id="modal-give" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
-      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
-        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
-          <img src="images/modal-give-hero.jpg" alt="Cheerful giving and outreach support" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
-          <button data-close-modal="modal-give" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
-          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
-            <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">Partner with us · Malachi 3:10</span>
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Tithes, Offerings & Outreach</h3>
+    <div id="modal-give" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 border border-stone-200 shadow-2xl space-y-4">
+        <div class="flex justify-between items-start border-b border-stone-100 pb-3">
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase">PARTNER WITH US</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-0.5">Tithes, Offerings & Outreach Support</h3>
           </div>
+          <button data-close-modal="modal-give" class="text-stone-400 hover:text-stone-700 text-xl leading-none flex-shrink-0">&times;</button>
         </div>
-        <div class="p-4 sm:p-6 space-y-4">
-        <div class="grid grid-cols-3 gap-2">
-          <img src="images/modal-give-worship.jpg" alt="Offering moment during service" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-give-welfare.jpg" alt="Welfare items for outreach" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-          <img src="images/modal-give-medical.jpg" alt="Medical supplies funded by giving" class="h-16 sm:h-20 w-full object-cover rounded-xl" loading="lazy" />
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] sm:text-xs">
-          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5 text-center"><strong class="block text-stone-900">Tithe</strong><span class="text-stone-600">Storehouse</span></div>
-          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5 text-center"><strong class="block text-stone-900">Offering</strong><span class="text-stone-600">Altar upkeep</span></div>
-          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2.5 text-center"><strong class="block text-stone-900">Outreach</strong><span class="text-stone-600">Meds + welfare</span></div>
-        </div>
-        <div class="space-y-4 text-xs sm:text-sm text-stone-700 leading-relaxed">
+
+        <div class="space-y-4 text-xs sm:text-sm text-stone-700 leading-relaxed max-h-[65vh] overflow-y-auto pr-1">
           <p>
             "Bring ye all the tithes into the storehouse" (Malachi 3:10). Your tithes, offerings, and seed gifts sustain the work of this altar and fund evangelism materials, free medications, and welfare items for "Let's Go A-Fishing" outreaches.
           </p>
@@ -2113,17 +1880,15 @@
             </p>
           </div>
 
-          <p class="text-[#80182a] text-[11px] sm:text-xs italic bg-rose-50 border border-rose-100 rounded-xl px-3.5 py-2.5">
+          <p class="text-[#80182a] text-[11px] italic">
             Kindly indicate "Tithe", "Offering", or "Outreach" in the transfer description so it can be recorded correctly.
           </p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-stone-100">
-          <button onclick="window.copyGivingAccount()" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors">Copy account details</button>
-          <button data-close-modal="modal-give" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs sm:text-sm transition-colors text-center">
-            Done — God bless you
+        <div class="pt-2 border-t border-stone-100">
+          <button data-close-modal="modal-give" class="w-full py-2.5 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-medium text-xs transition-colors text-center">
+            Close
           </button>
-        </div>
         </div>
       </div>
     </div>
@@ -2147,7 +1912,6 @@
       time: "8:00 AM - 10:30 AM",
       day: "Every Sunday",
       location: "Main Sanctuary & Youth Expression",
-      image: "images/modal-activity-sunday.jpg",
       description: "Blended reverent praise, biblical preaching, and corporate worship uniting the full RCBC family — faculty, student ministers, campus residents, and visiting guests — under one roof for the Word.",
       highlights: ["Contemporary & traditional praise", "Expository preaching from the Chaplain", "Holy Communion on first Sundays", "Youth Church & Teenagers Church in parallel"]
     },
@@ -2158,7 +1922,6 @@
       time: "6:00 PM - 7:30 PM",
       day: "Every Tuesday",
       location: "Main Sanctuary",
-      image: "images/modal-activity-digging-deep.jpg",
       description: "Expository verse-by-verse teaching and doctrine discipleship for students, faculty, and neighbours, built to lay a firm scriptural foundation for daily living and ministry.",
       highlights: ["Systematic book-by-book study", "Open Q&A and discussion", "Study notes provided", "Open to campus & community"]
     },
@@ -2169,7 +1932,6 @@
       time: "6:00 PM - 7:30 PM",
       day: "Every Thursday",
       location: "Main Sanctuary",
-      image: "images/modal-activity-faith-clinic.jpg",
       description: "Intercessory prayer altar for healing, divine deliverance, supernatural breakthrough, and empowerment — a dedicated midweek gathering to bring every burden to the altar.",
       highlights: ["Focused intercessory prayer", "Testimonies of healing & breakthrough", "Anointing and impartation", "Prayer partners available after service"]
     }
@@ -2179,7 +1941,6 @@
       id: "choir",
       category: "MUSIC",
       name: "Choir & Praise Team",
-      image: "images/modal-department-choir.jpg",
       description: "The Choir & Praise Team leads congregational worship across all three expressions, blending anointed vocals with skilled instrumentation to usher the house into God's presence every service.",
       meets: "Rehearsals: Fridays, 5:00 PM · Main Sanctuary",
       lead: "Led by the Music Ministry Coordinator",
@@ -2189,7 +1950,6 @@
       id: "protocol",
       category: "HOSPITALITY",
       name: "Protocol & Ushers",
-      image: "images/modal-department-protocol.jpg",
       description: "The Protocol & Ushering department is the friendly first face of Chapel of Praise — welcoming every guest, managing seating and offering flow, and keeping services orderly and dignified.",
       meets: "Briefing: Sundays, 7:15 AM · Chapel Forecourt",
       lead: "Led by the Chief Usher",
@@ -2199,7 +1959,6 @@
       id: "media",
       category: "TECHNICAL",
       name: "Media & Live Broadcast",
-      image: "images/modal-department-media.jpg",
       description: "The Media & Broadcast team keeps Chapel of Praise connected to the world — running sound, multicam livestreaming, projection, and social media coverage for every gathering.",
       meets: "Tech check: Sundays, 7:00 AM · Media Booth",
       lead: "Led by the Media Director",
@@ -2209,7 +1968,6 @@
       id: "prayer",
       category: "ALTAR",
       name: "Prayer Force",
-      image: "images/modal-department-prayer.jpg",
       description: "The Prayer Force is the intercessory backbone of the chapel, covering every service in prayer and standing in the gap for the RCBC campus, its students, and the wider Redemption City community.",
       meets: "Intercession: Daily, 5:30 AM · Prayer Chapel",
       lead: "Led by the Prayer Coordinator",
@@ -2219,7 +1977,6 @@
       id: "evangelism",
       category: "OUTREACH",
       name: "Evangelism & Missions",
-      image: "images/modal-department-evangelism.jpg",
       description: "The Evangelism & Missions team carries the gospel beyond the chapel walls — organizing outreaches across Redemption City and discipling new converts into the faith.",
       meets: "Outreach: 2nd Saturdays, 9:00 AM · Chapel Forecourt",
       lead: "Led by the Missions Coordinator",
@@ -2229,7 +1986,6 @@
       id: "teens",
       category: "NEXT-GEN",
       name: "Teens & Youth Mentors",
-      image: "images/modal-department-teens.jpg",
       description: "Teens & Youth Mentors walk alongside secondary students and young scholars, offering biblical discipleship alongside academic and career guidance for the next generation.",
       meets: "Mentorship: Sundays, 11:00 AM · Junior Chapel Pavilion",
       lead: "Led by the Teens Church Coordinator",
@@ -2593,17 +2349,15 @@ function openActivityModal(activityId) {
   const locationElem = document.getElementById('activity-modal-location');
   const descElem = document.getElementById('activity-modal-description');
   const highlightsList = document.getElementById('activity-modal-highlights');
-  const imageElem = document.getElementById('activity-modal-image');
 
   if (tagElem) tagElem.innerText = data.tag;
   if (titleElem) titleElem.innerText = data.name;
   if (locationElem) locationElem.innerText = data.location;
   if (descElem) descElem.innerText = data.description;
-  if (imageElem && data.image) { imageElem.src = data.image; imageElem.alt = data.name; }
 
   if (highlightsList) {
     highlightsList.innerHTML = data.highlights.map(h => `
-      <li class="flex items-center gap-2 text-xs text-stone-700 bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2">
+      <li class="flex items-center gap-2 text-xs text-stone-700">
         <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
         <span>${h}</span>
       </li>
@@ -2624,18 +2378,16 @@ function openDepartmentModal(deptId) {
   const meetsElem = document.getElementById('dept-modal-meets');
   const leadElem = document.getElementById('dept-modal-lead');
   const respList = document.getElementById('dept-modal-responsibilities');
-  const imageElem = document.getElementById('dept-modal-image');
 
   if (categoryElem) categoryElem.innerText = data.category;
   if (titleElem) titleElem.innerText = data.name;
   if (descElem) descElem.innerText = data.description;
   if (meetsElem) meetsElem.innerText = data.meets;
   if (leadElem) leadElem.innerText = data.lead;
-  if (imageElem && data.image) { imageElem.src = data.image; imageElem.alt = data.name; }
 
   if (respList) {
     respList.innerHTML = data.responsibilities.map(r => `
-      <li class="flex items-center gap-2 text-xs text-stone-700 bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2">
+      <li class="flex items-center gap-2 text-xs text-stone-700">
         <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
         <span>${r}</span>
       </li>
@@ -2974,14 +2726,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
       }
     });
-  });
-
-  // Close topmost modal with Escape + lock scroll on small screens
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-backdrop:not(.hidden)').forEach(m => m.classList.add('hidden'));
-      document.body.style.overflow = '';
-    }
   });
 
   // Form Submissions
