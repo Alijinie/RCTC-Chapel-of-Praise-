@@ -765,29 +765,29 @@
             <p class="font-serif italic text-[13px] sm:text-sm text-stone-500 leading-relaxed">“And the things that thou hast heard of me… the same commit thou to faithful men, who shall be able to teach others also.” <span class="not-italic font-sans font-bold text-[11px] text-[#80182a]">— 2 Timothy 2:2 (KJV)</span></p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+            <div onclick="window.openPathwayModal('believers')" class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2 hover:border-[#80182a]/50 hover:shadow-md transition-all cursor-pointer group">
               <span class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 text-[#80182a] font-serif font-bold flex items-center justify-center">1</span>
               <h4 class="font-serif font-bold text-base text-stone-900">Believers' Class</h4>
               <p class="text-xs text-stone-600 leading-relaxed">Sundays 11:30 AM · 6 weeks. Foundations: salvation, baptism, prayer, Word, fellowship and holy living.</p>
-              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1">START HERE →</span>
+              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1 group-hover:underline">START HERE →</span>
             </div>
-            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+            <div onclick="window.openPathwayModal('workers')" class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2 hover:border-[#80182a]/50 hover:shadow-md transition-all cursor-pointer group">
               <span class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 text-[#80182a] font-serif font-bold flex items-center justify-center">2</span>
               <h4 class="font-serif font-bold text-base text-stone-900">Workers in Training</h4>
               <p class="text-xs text-stone-600 leading-relaxed">Saturdays 10 AM · 8 weeks. Doctrine, character, service ethics and department shadowing.</p>
-              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1">BECOME A WORKER →</span>
+              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1 group-hover:underline">BECOME A WORKER →</span>
             </div>
-            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+            <div onclick="window.openPathwayModal('fellowship')" class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2 hover:border-[#80182a]/50 hover:shadow-md transition-all cursor-pointer group">
               <span class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 text-[#80182a] font-serif font-bold flex items-center justify-center">3</span>
               <h4 class="font-serif font-bold text-base text-stone-900">House Fellowship</h4>
               <p class="text-xs text-stone-600 leading-relaxed">Sundays 5:00 PM in hostels & quarters. Small circles of 8–12 for care, accountability and prayer.</p>
-              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1">FIND A CENTRE →</span>
+              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1 group-hover:underline">FIND A CENTRE →</span>
             </div>
-            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+            <div onclick="window.openPathwayModal('baptism')" class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2 hover:border-[#80182a]/50 hover:shadow-md transition-all cursor-pointer group">
               <span class="w-9 h-9 rounded-xl bg-[#80182a] text-white font-serif font-bold flex items-center justify-center">4</span>
               <h4 class="font-serif font-bold text-base text-stone-900">Baptism & Deployment</h4>
               <p class="text-xs text-stone-600 leading-relaxed">Quarterly water baptism + commissioning into a department, outreach team or teens mentoring.</p>
-              <button data-open-modal="modal-serve-signup" class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest pt-1 hover:underline">GET BAPTISED →</button>
+              <span class="text-[10px] font-bold text-[#80182a] uppercase tracking-widest block pt-1 group-hover:underline">GET BAPTISED →</span>
             </div>
           </div>
         </div>
@@ -2146,7 +2146,42 @@
       </div>
     </div>
 
-    <!-- Modal 5d: RCCG Vision 2032 -->
+    <!-- Modal 5d: Discipleship Pathway Detail (dynamically populated via openPathwayModal) -->
+    <div id="modal-pathway-detail" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
+      <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
+        <div class="relative h-32 sm:h-44 overflow-hidden flex-shrink-0">
+          <img id="pathway-modal-image" src="images/modal-pathway-believers.jpg" alt="Discipleship pathway session" class="modal-hero-img w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent"></div>
+          <button data-close-modal="modal-pathway-detail" aria-label="Close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-lg leading-none flex-shrink-0">×</button>
+          <div class="absolute bottom-3 left-4 right-4 sm:left-6 sm:right-6">
+            <span id="pathway-modal-step" class="text-[10px] font-bold tracking-widest text-amber-300 uppercase">STEP 1 OF 4</span>
+            <h3 id="pathway-modal-title" class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white mt-0.5 leading-tight">Believers' Class</h3>
+            <p id="pathway-modal-tag" class="text-[11px] sm:text-xs text-stone-200 mt-0.5">Sundays · 11:30 AM · 6 weeks</p>
+          </div>
+        </div>
+        <div class="p-4 sm:p-6 space-y-4">
+          <p id="pathway-modal-venue" class="text-[11px] font-bold tracking-widest text-[#80182a] uppercase"></p>
+          <p id="pathway-modal-description" class="text-xs sm:text-sm text-stone-600 leading-relaxed"></p>
+
+          <div>
+            <span class="text-[10px] font-bold tracking-widest text-stone-500 uppercase block mb-2">What you'll cover</span>
+            <ul id="pathway-modal-details" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></ul>
+          </div>
+          <div class="bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3.5 py-2.5 text-[11px] sm:text-xs text-stone-600">Every step is walked with a mentor beside you · “The same commit thou to faithful men, who shall be able to teach others also.” — 2 Tim. 2:2 (KJV)</div>
+
+          <div class="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
+            <button data-close-modal="modal-pathway-detail" class="flex-1 py-2.5 sm:py-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-medium text-xs text-stone-700 transition-colors text-center">
+              Close
+            </button>
+            <button id="pathway-modal-cta" class="flex-1 py-2.5 sm:py-3 rounded-xl bg-[#80182a] hover:bg-[#6e1423] text-white font-semibold text-xs sm:text-sm transition-colors text-center">
+              Start Believers' Class
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5e: RCCG Vision 2032 -->
     <div id="modal-vision-2032" class="modal-backdrop hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-6 py-6 sm:py-10" role="dialog" aria-modal="true">
       <div class="modal-panel bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full my-auto border border-stone-200 shadow-2xl overflow-hidden">
         <div class="relative h-36 sm:h-52 md:h-60 overflow-hidden flex-shrink-0">
@@ -2654,6 +2689,56 @@
       responsibilities: ["Mentor teens in small groups", "Support academic & career guidance", "Assist with Teens Church programs", "Background check required"]
     }
   ],
+  pathway: [
+    {
+      id: "believers",
+      step: "STEP 1 OF 4",
+      name: "Believers' Class",
+      tag: "Sundays · 11:30 AM · 6 weeks",
+      venue: "Chapel of Praise Classroom Block",
+      image: "images/modal-pathway-believers.jpg",
+      description: "The starting line for every new believer and first-time member. Six weeks of foundations — assurance of salvation, water baptism, prayer, studying the Word, fellowship and holy living — taught in a warm small-group setting with a personal mentor.",
+      details: ["Salvation assurance & new life in Christ", "Prayer, Word study & quiet time habits", "Baptism preparation & holy living", "Certificate + mentor assignment on completion"],
+      cta: "Start Believers' Class",
+      ctaAction: "plan-visit"
+    },
+    {
+      id: "workers",
+      step: "STEP 2 OF 4",
+      name: "Workers in Training",
+      tag: "Saturdays · 10:00 AM · 8 weeks",
+      venue: "Main Sanctuary Annex",
+      image: "images/modal-pathway-workers.jpg",
+      description: "From member to minister. Eight weeks of doctrine, Christian character, service ethics and department shadowing that prepares you for faithful service on the altar, in protocol, media, prayer or outreach.",
+      details: ["RCCG doctrine & statement of faith", "Character, integrity & service ethics", "Department shadowing (2 rotations)", "Commissioning into a serving team"],
+      cta: "Become a worker",
+      ctaAction: "serve-signup"
+    },
+    {
+      id: "fellowship",
+      step: "STEP 3 OF 4",
+      name: "House Fellowship",
+      tag: "Sundays · 5:00 PM · Weekly",
+      venue: "Hostels, staff quarters & neighbourhood centres",
+      image: "images/modal-pathway-fellowship.jpg",
+      description: "Church beyond Sunday. Small circles of 8–12 believers meeting in hostels and quarters for care, accountability, Bible discussion and prayer — no one walks alone at Chapel of Praise.",
+      details: ["8–12 members per centre with a host leader", "Weekly Word, welfare & intercession", "Visitation & follow-up for absentees", "Ask the Chaplaincy to place you this week"],
+      cta: "Find a centre",
+      ctaAction: "plan-visit"
+    },
+    {
+      id: "baptism",
+      step: "STEP 4 OF 4",
+      name: "Baptism & Deployment",
+      tag: "Quarterly · Water baptism + commissioning",
+      venue: "Main Sanctuary · Baptismal pool & altar",
+      image: "images/modal-pathway-baptism.jpg",
+      description: "Declare your faith publicly through water baptism, then get deployed — commissioned into a department, an outreach team or teens mentoring where your gifts edify the body of Christ.",
+      details: ["Baptismal class (1 session before baptism day)", "Quarterly baptism & thanksgiving service", "Deployment interview + team placement", "Mentor follows up for your first 90 days"],
+      cta: "Get baptised",
+      ctaAction: "serve-signup"
+    }
+  ],
   congregations: {
     sanctuary: {
       id: "sanctuary",
@@ -3063,6 +3148,46 @@ function openDepartmentModal(deptId) {
   openModal('modal-department-detail');
 }
 
+// --- DISCIPLESHIP PATHWAY DETAIL MODAL ---
+function openPathwayModal(pathwayId) {
+  const data = CHURCH_DATA.pathway.find(p => p.id === pathwayId);
+  if (!data) return;
+
+  const stepElem = document.getElementById('pathway-modal-step');
+  const titleElem = document.getElementById('pathway-modal-title');
+  const tagElem = document.getElementById('pathway-modal-tag');
+  const venueElem = document.getElementById('pathway-modal-venue');
+  const descElem = document.getElementById('pathway-modal-description');
+  const detailsList = document.getElementById('pathway-modal-details');
+  const imageElem = document.getElementById('pathway-modal-image');
+  const ctaElem = document.getElementById('pathway-modal-cta');
+
+  if (stepElem) stepElem.innerText = data.step;
+  if (titleElem) titleElem.innerText = data.name;
+  if (tagElem) tagElem.innerText = data.tag;
+  if (venueElem) venueElem.innerText = data.venue;
+  if (descElem) descElem.innerText = data.description;
+  if (imageElem && data.image) { imageElem.src = data.image; imageElem.alt = data.name; }
+  if (ctaElem) {
+    ctaElem.innerText = data.cta;
+    ctaElem.onclick = () => {
+      closeModal('modal-pathway-detail');
+      openModal(data.ctaAction === 'serve-signup' ? 'modal-serve-signup' : 'modal-plan-visit');
+    };
+  }
+
+  if (detailsList) {
+    detailsList.innerHTML = data.details.map(d => `
+      <li class="flex items-center gap-2 text-xs text-stone-700 bg-[#f8f6f0] border border-stone-200/60 rounded-xl px-3 py-2">
+        <svg class="w-3.5 h-3.5 text-[#80182a] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>${d}</span>
+      </li>
+    `).join('');
+  }
+
+  openModal('modal-pathway-detail');
+}
+
 // --- MEDIA TAB LOGIC ---
 function filterMedia(category) {
   activeMediaFilter = category;
@@ -3451,6 +3576,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.switchCongregation = switchCongregation;
   window.openActivityModal = openActivityModal;
   window.openDepartmentModal = openDepartmentModal;
+  window.openPathwayModal = openPathwayModal;
   window.filterMedia = filterMedia;
   window.filterEvents = filterEvents;
   window.playSermon = playSermon;
