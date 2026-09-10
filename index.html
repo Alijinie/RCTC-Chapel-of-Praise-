@@ -248,6 +248,26 @@
                 <span>Sunday live</span>
               </button>
             </div>
+
+            <!-- Service-time quick chips -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span class="glass-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-semibold text-white">
+                <svg class="w-3 h-3 text-amber-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Sun 8:00 AM · Celebration
+              </span>
+              <span class="glass-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-semibold text-white">
+                <svg class="w-3 h-3 text-amber-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Tue 6:00 PM · Digging Deep
+              </span>
+              <span class="glass-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-semibold text-white">
+                <svg class="w-3 h-3 text-amber-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4m-2-2h4"/><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9z"/></svg>
+                Thu 6:00 PM · Faith Clinic
+              </span>
+              <button onclick="window.switchTab('visit')" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold text-amber-200 hover:text-white hover:underline transition-colors">
+                <span>Christ's Ambassadors Rd, Redemption City</span>
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -270,6 +290,48 @@
             <button data-open-modal="modal-plan-visit" class="bg-[#80182a] hover:bg-[#6e1423] text-white px-4 sm:px-5 py-3 rounded-2xl text-xs font-semibold transition-all shadow-sm">
               Plan visit
             </button>
+          </div>
+        </div>
+
+        <!-- Parish At-a-Glance Stats Strip -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="glass rounded-2xl p-4 sm:p-5 text-center space-y-1">
+            <span class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 block">3</span>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">Expressions</span>
+            <span class="text-[11px] text-stone-600 block leading-snug">Sanctuary · Youth · Teens<br/>every Sunday 8 AM</span>
+          </div>
+          <div class="glass rounded-2xl p-4 sm:p-5 text-center space-y-1">
+            <span class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 block">3<span class="text-[#80182a]">+</span></span>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">Weekly Altars</span>
+            <span class="text-[11px] text-stone-600 block leading-snug">Sun Celebration · Tue Word<br/>Thu Faith Clinic</span>
+          </div>
+          <div class="glass rounded-2xl p-4 sm:p-5 text-center space-y-1">
+            <span class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 block">6<span class="text-[#80182a]">+</span></span>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">Serve Teams</span>
+            <span class="text-[11px] text-stone-600 block leading-snug">Choir · Protocol · Media<br/>Prayer · Outreach · Mentors</span>
+          </div>
+          <div class="glass rounded-2xl p-4 sm:p-5 text-center space-y-1">
+            <span class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 block">4<span class="text-[#80182a]"> steps</span></span>
+            <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">Growth Track</span>
+            <span class="text-[11px] text-stone-600 block leading-snug">Believers' Class → Baptism<br/>& deployment</span>
+          </div>
+        </div>
+
+        <!-- First-Timer Ribbon -->
+        <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm p-5 sm:p-6 flex flex-col md:flex-row md:items-center gap-4">
+          <div class="flex items-start gap-3.5 flex-1">
+            <div class="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-100 text-[#80182a] flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">FIRST TIME WITH US?</span>
+              <h3 class="font-serif text-xl font-bold text-stone-900 leading-snug">Arrive as a guest, leave as family</h3>
+              <p class="text-xs text-stone-600 leading-relaxed mt-1">Free parking by the forecourt · Ushers at every door · Children's check-in for teens · Translation & welfare desks. Come 20 minutes early for a front welcome.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 flex-shrink-0">
+            <button data-open-modal="modal-plan-visit" class="bg-[#80182a] hover:bg-[#6e1423] text-white px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors">Plan your visit</button>
+            <button onclick="window.switchTab('visit')" class="bg-stone-100 hover:bg-stone-200 text-stone-800 px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors">Directions & FAQ</button>
           </div>
         </div>
 
@@ -429,6 +491,64 @@
               </span>
             </div>
           </div>
+
+          <!-- Sunday Order of Service + Midweek rhythm -->
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-5">
+            <div class="lg:col-span-3 bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-sm space-y-4">
+              <div>
+                <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase block">SUNDAY FLOW · 8:00 – 10:30 AM</span>
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">This Sunday at a glance</h3>
+                <p class="text-xs text-stone-600 mt-1 leading-relaxed">Same apostolic order across Main Sanctuary, Youth & Teens — doors open 7:15 AM.</p>
+              </div>
+              <ol class="relative space-y-4 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:bg-stone-200">
+                <li class="relative pl-7">
+                  <span class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-[#80182a] border-2 border-rose-100"></span>
+                  <p class="text-xs font-bold text-stone-900">8:00 · Opening praise & intercession <span class="font-normal text-stone-500">— 30 min</span></p>
+                  <p class="text-[11px] text-stone-600">Reverent hymns, contemporary praise & altar preparation.</p>
+                </li>
+                <li class="relative pl-7">
+                  <span class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-white border-2 border-[#80182a]"></span>
+                  <p class="text-xs font-bold text-stone-900">8:30 · Worship, Word & thanksgiving <span class="font-normal text-stone-500">— 70 min</span></p>
+                  <p class="text-[11px] text-stone-600">Choir ministration, expository Word, testimony & offering.</p>
+                </li>
+                <li class="relative pl-7">
+                  <span class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-white border-2 border-[#80182a]"></span>
+                  <p class="text-xs font-bold text-stone-900">9:40 · Communion & commissioning <span class="font-normal text-stone-500">— 1st Sundays</span></p>
+                  <p class="text-[11px] text-stone-600">Holy Communion, dedications, welcome of first-timers & benediction.</p>
+                </li>
+                <li class="relative pl-7">
+                  <span class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-amber-400 border-2 border-amber-100"></span>
+                  <p class="text-xs font-bold text-stone-900">10:30 · After-service fellowship <span class="font-normal text-stone-500">— 60 min</span></p>
+                  <p class="text-[11px] text-stone-600">Believers' Class 11:30 AM · Counselling · Department sign-ups at the forecourt.</p>
+                </li>
+              </ol>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button data-open-modal="modal-plan-visit" class="bg-[#80182a] hover:bg-[#6e1423] text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors">Save my seat</button>
+                <button data-open-modal="modal-live-stream" class="bg-stone-100 hover:bg-stone-200 text-stone-800 px-4 py-2 rounded-xl text-xs font-semibold transition-colors">Join online 8 AM</button>
+              </div>
+            </div>
+            <div class="lg:col-span-2 bg-[#1c1917] text-white rounded-3xl p-6 sm:p-7 space-y-4 shadow-xl border border-stone-800">
+              <div>
+                <span class="text-[10px] font-bold tracking-widest text-rose-300 uppercase block">MIDWEEK RHYTHM</span>
+                <h3 class="font-serif text-2xl font-bold mt-1">Stay lit all week</h3>
+              </div>
+              <ul class="space-y-3 text-xs leading-relaxed">
+                <li class="bg-white/5 border border-white/10 rounded-2xl p-3.5">
+                  <p class="font-bold text-white">Tue 6:00 PM — Digging Deep</p>
+                  <p class="text-stone-300 text-[11px] mt-0.5">Verse-by-verse doctrine + Q&A. Bring Bible, notebook & a friend.</p>
+                </li>
+                <li class="bg-white/5 border border-white/10 rounded-2xl p-3.5">
+                  <p class="font-bold text-white">Thu 6:00 PM — Faith Clinic</p>
+                  <p class="text-stone-300 text-[11px] mt-0.5">Healing & breakthrough altar. Submit prayer notes at the door.</p>
+                </li>
+                <li class="bg-white/5 border border-white/10 rounded-2xl p-3.5">
+                  <p class="font-bold text-white">Mon 6:00 PM — House Fellowships</p>
+                  <p class="text-stone-300 text-[11px] mt-0.5">Circles of 8–12 in hostels & quarters for care and accountability.</p>
+                </li>
+              </ul>
+              <p class="font-serif italic text-[12px] text-stone-400 leading-relaxed">“And they continued stedfastly in the apostles' doctrine and fellowship.” <span class="not-italic font-sans font-bold text-[10px] text-amber-200/90">— Acts 2:42 (KJV)</span></p>
+            </div>
+          </div>
         </div>
 
         <!-- Office of the Chaplain Card -->
@@ -449,6 +569,35 @@
               <button onclick="window.switchTab('ministries')" class="text-stone-700 hover:text-stone-900 text-xs font-semibold underline">
                 Explore congregations
               </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our DNA / What We Believe -->
+        <div class="space-y-4">
+          <div class="space-y-1">
+            <span class="text-[11px] font-bold tracking-widest text-[#80182a] uppercase block">OUR DNA</span>
+            <h2 class="font-serif text-3xl font-bold text-stone-900">What we believe & practise</h2>
+            <p class="text-xs sm:text-sm text-stone-600 max-w-2xl leading-relaxed">An RCCG parish under the Redeemed Christian Theological College — biblical, Spirit-filled, and mission-driven.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 lg:gap-5">
+            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+              <span class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-base">📖</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">Sound Word</h4>
+              <p class="text-xs text-stone-600 leading-relaxed">Expository teaching, Digging Deep doctrine, and Believers' Class foundations. The Bible is final authority.</p>
+              <p class="font-serif italic text-[11px] text-stone-500">“Thy word is a lamp unto my feet.” <span class="not-italic font-sans font-bold text-[10px] text-[#80182a]">— Ps. 119:105</span></p>
+            </div>
+            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+              <span class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-base">🔥</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">Fervent Prayer</h4>
+              <p class="text-xs text-stone-600 leading-relaxed">Faith Clinic altar, daily 5:30 AM Prayer Force, and confidential Chaplain's Prayer Desk all week.</p>
+              <p class="font-serif italic text-[11px] text-stone-500">“Men ought always to pray, and not to faint.” <span class="not-italic font-sans font-bold text-[10px] text-[#80182a]">— Luke 18:1</span></p>
+            </div>
+            <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm space-y-2">
+              <span class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-base">🌍</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">Apostolic Sending</h4>
+              <p class="text-xs text-stone-600 leading-relaxed">Let's Go A-Fishing outreaches, Vision 2032 alignment, and deployment of every disciple into service.</p>
+              <p class="font-serif italic text-[11px] text-stone-500">“Go ye into all the world, and preach.” <span class="not-italic font-sans font-bold text-[10px] text-[#80182a]">— Mark 16:15</span></p>
             </div>
           </div>
         </div>
@@ -548,6 +697,74 @@
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                 <span class="text-xs font-medium text-white">Doctrinal Study & Pastoral Training</span>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Latest Word Spotlight -->
+        <div class="relative overflow-hidden rounded-3xl bg-white border border-stone-200/80 shadow-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <img src="8.jpg" alt="Latest sermon at Chapel of Praise" class="w-full h-52 sm:h-64 md:h-full object-cover" />
+            <div class="p-6 sm:p-7 space-y-3">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[10px] font-bold tracking-widest text-[#80182a] uppercase bg-rose-50 px-2.5 py-1 rounded-full">LATEST WORD · SANCTUARY · 48 MIN</span>
+                <span class="text-[11px] text-stone-400">Sun, 30 Aug</span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 leading-tight">Ambassadors of Christ</h3>
+              <p class="text-xs text-[#80182a] font-semibold">2 Corinthians 5:17-21 · The Chaplain</p>
+              <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">Our supernatural diplomatic immunity as believers deployed into academia, marketplace, and ministry. Catch up before Sunday — then come expectant.</p>
+              <p class="font-serif italic text-[12px] sm:text-[13px] text-stone-500">“Now then we are ambassadors for Christ.” <span class="not-italic font-sans font-bold text-[10px] text-[#80182a]">— 2 Cor. 5:20 (KJV)</span></p>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <button onclick="window.playSermon('sermon-1')" class="bg-[#80182a] hover:bg-[#6e1423] text-white px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Listen now</span>
+                </button>
+                <button onclick="window.switchTab('media')" class="bg-stone-100 hover:bg-stone-200 text-stone-800 px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors">Full archive</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- First-Timer FAQ -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
+          <div class="space-y-3">
+            <div class="space-y-1">
+              <span class="text-[11px] font-bold tracking-widest text-[#80182a] uppercase block">GOOD TO KNOW</span>
+              <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900">First-timer answers</h2>
+              <p class="text-xs sm:text-sm text-stone-600">Everything guests ask before their first Sunday.</p>
+            </div>
+            <div class="space-y-2.5">
+              <details class="bg-white rounded-2xl border border-stone-200/80 shadow-sm px-4 py-3.5 group">
+                <summary class="text-xs font-bold text-stone-900 cursor-pointer list-none flex items-center justify-between gap-3">What time should I arrive? <span class="text-[#80182a] text-base leading-none group-open:rotate-45 transition-transform">+</span></summary>
+                <p class="text-xs text-stone-600 leading-relaxed pt-2">Doors open 7:15 AM. Arrive by 7:40 AM for parking, a welcome gift, and a good seat. Service runs 8:00 – 10:30 AM sharp.</p>
+              </details>
+              <details class="bg-white rounded-2xl border border-stone-200/80 shadow-sm px-4 py-3.5 group">
+                <summary class="text-xs font-bold text-stone-900 cursor-pointer list-none flex items-center justify-between gap-3">What should I wear? <span class="text-[#80182a] text-base leading-none group-open:rotate-45 transition-transform">+</span></summary>
+                <p class="text-xs text-stone-600 leading-relaxed pt-2">Come as you are — suits, native attire, or smart casual. Our ushers care about your comfort, not your costume.</p>
+              </details>
+              <details class="bg-white rounded-2xl border border-stone-200/80 shadow-sm px-4 py-3.5 group">
+                <summary class="text-xs font-bold text-stone-900 cursor-pointer list-none flex items-center justify-between gap-3">Where do my teenagers / kids go? <span class="text-[#80182a] text-base leading-none group-open:rotate-45 transition-transform">+</span></summary>
+                <p class="text-xs text-stone-600 leading-relaxed pt-2">Youth (Ignite & Deploy) meet in Hall B and Teens (The Overflow) in the Junior Pavilion — both at 8:00 AM with trained mentors and check-in.</p>
+              </details>
+              <details class="bg-white rounded-2xl border border-stone-200/80 shadow-sm px-4 py-3.5 group">
+                <summary class="text-xs font-bold text-stone-900 cursor-pointer list-none flex items-center justify-between gap-3">How do I join, serve, or get prayer? <span class="text-[#80182a] text-base leading-none group-open:rotate-45 transition-transform">+</span></summary>
+                <p class="text-xs text-stone-600 leading-relaxed pt-2">After service visit the forecourt desks, tap “Plan your visit”, or send a prayer note — our protocol and intercession teams follow up within 48 hours.</p>
+              </details>
+            </div>
+          </div>
+          <div class="relative overflow-hidden rounded-3xl bg-stone-950 text-white p-6 sm:p-7 shadow-lg flex flex-col justify-between gap-5">
+            <img src="fi.jpeg" alt="Invite a friend to church" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-stone-950/20 pointer-events-none"></div>
+            <div class="relative z-10 space-y-3">
+              <span class="text-[10px] font-bold tracking-widest text-amber-300 uppercase block">GROW THE FAMILY</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-tight">Someone you love needs this altar</h3>
+              <p class="text-xs sm:text-sm text-white/80 leading-relaxed">Invite a coursemate, neighbour, or family member. Share the countdown, send a prayer request for them, or partner with outreach.</p>
+              <p class="font-serif italic text-[12px] sm:text-[13px] text-white/70">“And the lord said unto the servant, Go out into the highways and hedges, and compel them to come in.” <span class="not-italic font-sans font-bold text-[10px] text-amber-200">— Luke 14:23 (KJV)</span></p>
+            </div>
+            <div class="relative z-10 flex flex-wrap gap-2">
+              <button onclick="window.showToast('Invite link copied — share it on WhatsApp!', 'success')" class="bg-white text-stone-900 hover:bg-stone-100 px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors">Invite a friend</button>
+              <button data-open-modal="modal-prayer-request" class="bg-white/10 hover:bg-white/20 border border-white/15 px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors">Pray for them</button>
+              <button data-open-modal="modal-give" class="bg-amber-400 hover:bg-amber-300 text-stone-900 px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors">Give & partner</button>
             </div>
           </div>
         </div>
